@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.green {
+  color: #080 !important;
+}
+.red {
+  color: #800 !important;
+}
+.grey {
+  color: #888 !important;
+}
+
+.right,
+th.right,
+th.mat-header-cell.right {
+  text-align: right;
+}
+
+button + button {
+  margin-left: 0.5em !important;
+}
+mat-card + mat-card {
+  margin-top: 0.5em;
+}
+table {
+  width: 100%;
+
+  td + td,
+  td.mat-cell + td.mat-cell {
+    padding-left: 0.1em;
+  }
+  th + th,
+  th.mat-header-cell + th.mat-header-cell {
+    padding-left: 0.1em;
+  }
+}
+
+/*
+table.mat-table {
+  tr.mat-row {
+    height: 2em;
+    min-height: 2em;
+  }
+
+  th.mat-header-cell,
+  td.mat-cell {
+    padding-top: 0.19em;
+    padding-bottom: 0.19em;
+  }
+
+  th.mat-header-cell:not(:first-child),
+  td.mat-cell:not(:first-child) {
+    padding-left: 1em;
+  }
+
+  th.right,
+  td.right {
+    text-align: right;
+  }
+}
+
+.succ {
+  color: #009000;
+}
+.none {
+  color: #e0e0e0;
+}
+
+mat-card {
+  margin: 0 1em 1em 1em;
+}
+
+mat-card + mat-card {
+  margin-left: 0;
+}
+*/

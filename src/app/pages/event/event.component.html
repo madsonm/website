@@ -1,0 +1,101 @@
+<div class="content">
+  <mat-card>
+    <mat-card-header>
+      <mat-icon mat-card-avatar [inline]="true" *ngIf="event.tuesday">restaurant</mat-icon>
+      <mat-icon mat-card-avatar [inline]="true" *ngIf="event.thursday">fastfood</mat-icon>
+      <mat-icon mat-card-avatar [inline]="true" *ngIf="event.lan">keyboard</mat-icon>
+      <mat-icon mat-card-avatar [inline]="true" *ngIf="event.movie">local_movies</mat-icon>
+      <mat-icon mat-card-avatar [inline]="true" *ngIf="event.signup || event.signupsimple || event.signupnocount">
+        event_note</mat-icon>
+      <mat-card-title>{{event.title}}</mat-card-title>
+      <mat-card-subtitle>{{event.date | date:'MMM d, y, h:mm a'}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <img mat-card-image src="http://madson.me/event/img/{{event.image}}" *ngIf="event.image" />
+      <p *ngFor="let p of event.descr">{{p}}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="event.signup">
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Attendee</th>
+          <td mat-cell *matCellDef="let r">
+            <div>{{r.name}}</div>
+            <small *ngIf="event.type==='signup' && r.item">{{r.item}}</small>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="accepted">
+          <th mat-header-cell *matHeaderCellDef class="right">
+            <mat-icon class="green" [matBadge]="event.accepted" matBadgeColor="accent" matBadgePosition="below">
+              thumb_up
+            </mat-icon>
+          </th>
+          <td mat-cell *matCellDef="let r" class="right">
+            <mat-icon class="green" *ngIf="r.isaccepted" [matBadge]="r.count" matBadgeColor="accent"
+              matBadgePosition="below" matBadgeSize="small">thumb_up</mat-icon>
+            <mat-icon class="red" *ngIf="!r.isaccepted">thumb_down</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns"></tr>
+      </table>
+    </mat-card-content>
+    <mat-card-actions align="end" *ngIf="!event.disabled">
+      <button mat-flat-button color="accent" (click)="dialogDeclineOpen()">Decline</button>
+      <button mat-flat-button color="primary" (click)="dialogAcceptOpen()">Accept</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+  <div class="event_nav">
+    <a mat-button [href]="event.prev" *ngIf="event.prev">Previous</a>
+    <a mat-button [href]="event.next" *ngIf="event.next">Next</a>
+  </div>
+</div>
+
+
+<ng-template #templateAccept>
+  <form [formGroup]="formAccept" (ngSubmit)="dialogSubmit(formAccept)">
+    <h1 mat-dialog-title>Accept Invitation</h1>
+    <mat-dialog-content>
+      <p>Cool, thanks for signing up. </p>
+      <mat-form-field>
+        <input matInput #name formControlName="name" type="text" placeholder="Attendee" required />
+        <mat-error *ngIf="formAccept.controls.name.invalid">Required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #count formControlName="count" type="number" placeholder="Count" required />
+        <mat-error *ngIf="formAccept.controls.count.invalid">Required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #item formControlName="item" type="text" placeholder="Bringing" required />
+        <mat-error *ngIf="formAccept.controls.item.invalid">Required</mat-error>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-flat-button color="primary" type="submit" [disabled]="formAccept.invalid">Accept</button>
+    </mat-dialog-actions>
+  </form>
+</ng-template>
+
+
+<ng-template #templateDecline>
+  <form [formGroup]="formDecline" (ngSubmit)="dialogSubmit(formDecline)">
+    <h1 mat-dialog-title>Decline Invitation</h1>
+    <mat-dialog-content>
+      <p>Well that sucks. But thanks for letting us all know.</p>
+      <mat-form-field>
+        <input matInput #name formControlName="name" type="text" placeholder="Attendee" required />
+        <mat-error *ngIf="formDecline.controls.name.invalid">Required</mat-error>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-flat-button color="accent" type="submit" [disabled]="formDecline.invalid">Decline</button>
+    </mat-dialog-actions>
+  </form>
+</ng-template>

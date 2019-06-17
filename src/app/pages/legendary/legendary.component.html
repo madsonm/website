@@ -1,0 +1,6 @@
+<mat-card *ngFor="let keyword of keywords">
+  <h1 mat-card-title>{{keyword.keyword}}</h1>
+  <mat-card-content>
+    <div [innerHTML]="keyword.text"></div>
+  </mat-card-content>
+</mat-card>

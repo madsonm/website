@@ -1,0 +1,8 @@
+{
+  "/svc/*": {
+    "target": "http://madson.me",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
