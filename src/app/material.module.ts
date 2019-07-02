@@ -14,6 +14,8 @@ import {
   MatBadgeModule,
   MatSelectModule,
   MatTabsModule,
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
 } from '@angular/material';
 
 @NgModule({
@@ -32,8 +34,12 @@ import {
     MatBadgeModule,
     MatSelectModule,
     MatTabsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 5000 } }
+  ]
 })
 export class MaterialModule { }

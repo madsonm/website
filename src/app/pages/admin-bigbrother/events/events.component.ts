@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { MatTableDataSource, MatDialog, MatDialogConfig } from '@angular/material';
+import { MatTableDataSource, MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { MainService } from 'src/app/services/main.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { SessionStorageService } from 'ngx-store';
 
 @Component({
-  selector: 'app-table-events',
-  templateUrl: './table-events.component.html',
-  styleUrls: ['./table-events.component.scss']
+  selector: 'app-events',
+  templateUrl: './events.component.html',
+  styleUrls: ['./events.component.scss']
 })
-export class AdminBigbrotherTableEventsComponent implements OnInit {
+export class AdminBigbrotherEventsComponent implements OnInit {
   columns = ['houseguest', 'event', 'date', 'actions']; // Events
   table = new MatTableDataSource();
 
@@ -17,8 +18,12 @@ export class AdminBigbrotherTableEventsComponent implements OnInit {
   constructor(
     private service: MainService,
     private dialog: MatDialog,
-    private formBuilder: FormBuilder
-  ) { }
+    private formBuilder: FormBuilder,
+    private snackbar: MatSnackBar,
+    private session: SessionStorageService
+  ) {
+    this.session.set('title', 'BB Event Admin');
+  }
 
   ngOnInit() {
     this.load();
@@ -31,12 +36,13 @@ export class AdminBigbrotherTableEventsComponent implements OnInit {
   }
 
   add(obj: any): void {
-    this.edit(obj || { ...obj, new: true });
+    this.edit({ ...(obj || {}), id: null, new: true });
   }
 
   edit(obj: any): void {
     const config = new MatDialogConfig();
     config.data = this.formBuilder.group({
+      new: [obj.new],
       id: [obj.id],
       ekey: [obj.ekey, Validators.required],
       hkey: [obj.hkey, Validators.required],
@@ -47,6 +53,17 @@ export class AdminBigbrotherTableEventsComponent implements OnInit {
   }
 
   save(form: FormGroup) {
-    console.log(form.value);
+    this.service.bbAdminSaveEvents(form.value).subscribe(response => {
+      this.snackbar.open(`Added event`);
+      this.dialog.closeAll();
+      this.load();
+    });
+  }
+
+  delete(obj: any) {
+    this.service.bbAdminDeleteEvents(obj).subscribe(response => {
+      this.snackbar.open(`Deleted event`);
+      this.load();
+    });
   }
 }

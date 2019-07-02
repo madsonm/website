@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { MatTableDataSource, MatDialog, MatDialogConfig } from '@angular/material';
+import { MatTableDataSource, MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { MainService } from 'src/app/services/main.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { SessionStorageService } from 'ngx-store';
 
 @Component({
-  selector: 'app-table-adjustments',
-  templateUrl: './table-adjustments.component.html',
-  styleUrls: ['./table-adjustments.component.scss']
+  selector: 'app-adjustments',
+  templateUrl: './adjustments.component.html',
+  styleUrls: ['./adjustments.component.scss']
 })
-export class AdminBigbrotherTableAdjustmentsComponent implements OnInit {
+export class AdminBigbrotherAdjustmentsComponent implements OnInit {
   columns = ['player', 'reason', 'score', 'actions']; // Adjustments
   table = new MatTableDataSource();
 
@@ -17,8 +18,12 @@ export class AdminBigbrotherTableAdjustmentsComponent implements OnInit {
   constructor(
     private service: MainService,
     private dialog: MatDialog,
-    private formBuilder: FormBuilder
-  ) { }
+    private formBuilder: FormBuilder,
+    private snackbar: MatSnackBar,
+    private session: SessionStorageService
+  ) {
+    this.session.set('title', 'BB Adjustment Admin');
+  }
 
   ngOnInit() {
     this.load();
@@ -31,12 +36,13 @@ export class AdminBigbrotherTableAdjustmentsComponent implements OnInit {
   }
 
   add(obj: any): void {
-    this.edit(obj || { ...obj, new: true });
+    this.edit({ ...(obj || {}), id: null, new: true });
   }
 
   edit(obj: any): void {
     const config = new MatDialogConfig();
     config.data = this.formBuilder.group({
+      new: [obj.new],
       id: [obj.id],
       pkey: [obj.pkey, Validators.required],
       reason: [obj.reason, Validators.required],
@@ -47,6 +53,17 @@ export class AdminBigbrotherTableAdjustmentsComponent implements OnInit {
   }
 
   save(form: FormGroup) {
-    console.log(form.value);
+    this.service.bbAdminSaveAdjustments(form.value).subscribe(response => {
+      this.snackbar.open(`Added ${form.value.score} adjustment for ${form.value.reason}`);
+      this.dialog.closeAll();
+      this.load();
+    });
+  }
+
+  delete(obj: any) {
+    this.service.bbAdminDeleteAdjustments(obj).subscribe(response => {
+      this.snackbar.open(`Deleted ${obj.reason} adjustment`);
+      this.load();
+    });
   }
 }

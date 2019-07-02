@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { MatTableDataSource, MatDialog, MatDialogConfig } from '@angular/material';
+import { MatTableDataSource, MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { MainService } from 'src/app/services/main.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { SessionStorageService } from 'ngx-store';
 
 @Component({
-  selector: 'app-table-scoring',
-  templateUrl: './table-scoring.component.html',
-  styleUrls: ['./table-scoring.component.scss']
+  selector: 'app-scoring',
+  templateUrl: './scoring.component.html',
+  styleUrls: ['./scoring.component.scss']
 })
-export class AdminBigbrotherTableScoringComponent implements OnInit {
+export class AdminBigbrotherScoringComponent implements OnInit {
   columns = ['name', 'score', 'actions']; // Scoring
   table = new MatTableDataSource();
 
@@ -17,8 +18,12 @@ export class AdminBigbrotherTableScoringComponent implements OnInit {
   constructor(
     private service: MainService,
     private dialog: MatDialog,
-    private formBuilder: FormBuilder
-  ) { }
+    private formBuilder: FormBuilder,
+    private snackbar: MatSnackBar,
+    private session: SessionStorageService
+  ) {
+    this.session.set('title', 'BB Score Admin');
+  }
 
   ngOnInit() {
     this.load();
@@ -31,7 +36,7 @@ export class AdminBigbrotherTableScoringComponent implements OnInit {
   }
 
   add(obj: any): void {
-    this.edit(obj || { ...obj, new: true });
+    this.edit({ ...(obj || {}), id: null, new: true });
   }
 
   edit(obj: any): void {
@@ -39,6 +44,7 @@ export class AdminBigbrotherTableScoringComponent implements OnInit {
 
     const config = new MatDialogConfig();
     config.data = this.formBuilder.group({
+      new: [obj.new],
       id: [obj.id],
       short: [obj.short, Validators.required],
       name: [obj.name, Validators.required],
@@ -49,6 +55,17 @@ export class AdminBigbrotherTableScoringComponent implements OnInit {
   }
 
   save(form: FormGroup) {
-    console.log(form.value);
+    this.service.bbAdminSaveScoring(form.value).subscribe(response => {
+      this.snackbar.open(`Added ${form.value.name}`);
+      this.dialog.closeAll();
+      this.load();
+    });
+  }
+
+  delete(obj: any) {
+    this.service.bbAdminDeleteScoring(obj).subscribe(response => {
+      this.snackbar.open(`Deleted ${obj.name}`);
+      this.load();
+    });
   }
 }

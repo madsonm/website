@@ -6,7 +6,7 @@ import { MaterialModule } from './material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingInterceptor } from './services/loading.interceptor';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
-
+import { WebStorageModule } from 'ngx-store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InputFieldComponent } from './components/input-field/input-field.component';
@@ -18,13 +18,15 @@ import { ThursdayComponent } from './pages/thursday/thursday.component';
 import { AdminEventComponent } from './pages/admin-event/admin-event.component';
 import { LegendaryComponent } from './pages/legendary/legendary.component';
 import { AdminBigbrotherComponent } from './pages/admin-bigbrother/admin-bigbrother.component';
-import { AdminBigbrotherTableAdjustmentsComponent } from './pages/admin-bigbrother/table-adjustments/table-adjustments.component';
-import { AdminBigbrotherTableEventsComponent } from './pages/admin-bigbrother/table-events/table-events.component';
-import { AdminBigbrotherTableHouseguestsComponent } from './pages/admin-bigbrother/table-houseguests/table-houseguests.component';
-import { AdminBigbrotherTablePicksComponent } from './pages/admin-bigbrother/table-picks/table-picks.component';
-import { AdminBigbrotherTablePlayersComponent } from './pages/admin-bigbrother/table-players/table-players.component';
-import { AdminBigbrotherTableScoringComponent } from './pages/admin-bigbrother/table-scoring/table-scoring.component';
-import { AdminBigbrotherTableSeasonsComponent } from './pages/admin-bigbrother/table-seasons/table-seasons.component';
+
+import { AdminBigbrotherAdjustmentsComponent } from './pages/admin-bigbrother/adjustments/adjustments.component';
+import { AdminBigbrotherEventsComponent } from './pages/admin-bigbrother/events/events.component';
+import { AdminBigbrotherHouseguestsComponent } from './pages/admin-bigbrother/houseguests/houseguests.component';
+import { AdminBigbrotherPicksComponent } from './pages/admin-bigbrother/picks/picks.component';
+import { AdminBigbrotherPlayersComponent } from './pages/admin-bigbrother/players/players.component';
+import { AdminBigbrotherScoringComponent } from './pages/admin-bigbrother/scoring/scoring.component';
+import { AdminBigbrotherSeasonsComponent } from './pages/admin-bigbrother/seasons/seasons.component';
+
 import { BbSelectEventComponent } from './components/bb-select-event/bb-select-event.component';
 import { BbSelectHouseguestComponent } from './components/bb-select-houseguest/bb-select-houseguest.component';
 import { BbSelectPlayerComponent } from './components/bb-select-player/bb-select-player.component';
@@ -40,13 +42,13 @@ import { BbSelectPlayerComponent } from './components/bb-select-player/bb-select
     ThursdayComponent,
     LegendaryComponent,
     AdminBigbrotherComponent,
-    AdminBigbrotherTableAdjustmentsComponent,
-    AdminBigbrotherTableEventsComponent,
-    AdminBigbrotherTableHouseguestsComponent,
-    AdminBigbrotherTablePicksComponent,
-    AdminBigbrotherTablePlayersComponent,
-    AdminBigbrotherTableScoringComponent,
-    AdminBigbrotherTableSeasonsComponent,
+    AdminBigbrotherAdjustmentsComponent,
+    AdminBigbrotherEventsComponent,
+    AdminBigbrotherHouseguestsComponent,
+    AdminBigbrotherPicksComponent,
+    AdminBigbrotherPlayersComponent,
+    AdminBigbrotherScoringComponent,
+    AdminBigbrotherSeasonsComponent,
     BbSelectEventComponent,
     BbSelectHouseguestComponent,
     BbSelectPlayerComponent
@@ -58,6 +60,7 @@ import { BbSelectPlayerComponent } from './components/bb-select-player/bb-select
     BrowserAnimationsModule,
     MaterialModule,
     NgxUiLoaderModule,
+    WebStorageModule,
     FormsModule,
     ReactiveFormsModule
   ],

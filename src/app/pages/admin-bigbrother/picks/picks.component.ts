@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { MatTableDataSource, MatDialog, MatDialogConfig } from '@angular/material';
+import { MatTableDataSource, MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { MainService } from 'src/app/services/main.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { SessionStorageService } from 'ngx-store';
 
 @Component({
-  selector: 'app-table-picks',
-  templateUrl: './table-picks.component.html',
-  styleUrls: ['./table-picks.component.scss']
+  selector: 'app-picks',
+  templateUrl: './picks.component.html',
+  styleUrls: ['./picks.component.scss']
 })
-export class AdminBigbrotherTablePicksComponent implements OnInit {
+export class AdminBigbrotherPicksComponent implements OnInit {
   columns = ['player', 'houseguest', 'start', 'end', 'actions']; // Picks
   table = new MatTableDataSource();
 
@@ -17,8 +18,12 @@ export class AdminBigbrotherTablePicksComponent implements OnInit {
   constructor(
     private service: MainService,
     private dialog: MatDialog,
-    private formBuilder: FormBuilder
-  ) { }
+    private formBuilder: FormBuilder,
+    private snackbar: MatSnackBar,
+    private session: SessionStorageService
+  ) {
+    this.session.set('title', 'BB Picks Admin');
+  }
 
   ngOnInit() {
     this.load();
@@ -31,12 +36,13 @@ export class AdminBigbrotherTablePicksComponent implements OnInit {
   }
 
   add(obj: any): void {
-    this.edit(obj || { ...obj, new: true });
+    this.edit({ ...(obj || {}), id: null, new: true });
   }
 
   edit(obj: any): void {
     const config = new MatDialogConfig();
     config.data = this.formBuilder.group({
+      new: [obj.new],
       id: [obj.id],
       pkey: [obj.pkey, Validators.required],
       hkey: [obj.hkey, Validators.required],
@@ -48,6 +54,17 @@ export class AdminBigbrotherTablePicksComponent implements OnInit {
   }
 
   save(form: FormGroup) {
-    console.log(form.value);
+    this.service.bbAdminSavePicks(form.value).subscribe(response => {
+      this.snackbar.open(`Added pick`);
+      this.dialog.closeAll();
+      this.load();
+    });
+  }
+
+  delete(obj: any) {
+    this.service.bbAdminDeletePicks(obj).subscribe(response => {
+      this.snackbar.open(`Deleted pick`);
+      this.load();
+    });
   }
 }

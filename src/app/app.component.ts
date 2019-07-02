@@ -3,6 +3,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { MatSidenav } from '@angular/material';
+import { SessionStorage, SessionStorageService } from 'ngx-store';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { MatSidenav } from '@angular/material';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Page Title';
+  @SessionStorage() title: string;
   loading = false;
 
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
@@ -19,8 +20,17 @@ export class AppComponent {
     private titleService: Title,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private session: SessionStorageService
   ) {
+    this.initSessionActions();
     this.initRouterActions();
+  }
+
+  private initSessionActions() {
+    this.session.observe('title').subscribe(change => {
+      console.log(change);
+      this.titleService.setTitle(`${change.newValue} - Madson`);
+    });
   }
 
   private initRouterActions() {
@@ -35,11 +45,8 @@ export class AppComponent {
           return route;
         }),
         filter(route => route.outlet === 'primary'),
-        mergeMap(route => route.data)
       )
       .subscribe(event => {
-        this.title = event['title'];
-        this.titleService.setTitle(`${this.title} - Madson`);
         this.closeSidenav();
       });
   }

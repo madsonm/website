@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionStorageService } from 'ngx-store';
 
 @Component({
   selector: 'app-admin-bigbrother',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminBigbrotherComponent implements OnInit {
 
-  constructor() { }
+  constructor(private session: SessionStorageService) {
+    this.session.set('title', 'BB Admin');
+  }
 
   ngOnInit() {
   }

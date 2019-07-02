@@ -1,0 +1,11 @@
+.mat-card {
+  display: inline-block;
+  width: 12em;
+  margin: 1em;
+
+  .mat-card-subtitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

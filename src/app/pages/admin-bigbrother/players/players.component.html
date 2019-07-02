@@ -1,7 +1,7 @@
 <table mat-table [dataSource]="table">
-  <ng-container matColumnDef="fullname">
+  <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let r">{{r.fullname}}</td>
+    <td mat-cell *matCellDef="let r">{{r.name}}</td>
   </ng-container>
 
 
@@ -20,6 +20,7 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="edit(r)">Edit</button>
         <button mat-menu-item (click)="add(r)">Copy</button>
+        <button mat-menu-item (click)="delete(r)">Delete</button>
       </mat-menu>
     </td>
   </ng-container>
@@ -32,16 +33,20 @@
 
 <ng-template #editTemplate let-data>
   <form [formGroup]="data" (ngSubmit)="save(data)">
-    <h1 mat-dialog-title>{{data.value.new ? 'Add' : 'Edit'}} Houseguest</h1>
+    <h1 mat-dialog-title>{{data.value.new ? 'Add' : 'Edit'}} Player</h1>
 
     <mat-dialog-content>
-      <input-field label="Short Name" [control]="data.get('name')" hint="(preferably one word)"></input-field>
-      <input-field label="Full Name" [control]="data.get('fullname')"></input-field>
+      <input-field label="Name" [control]="data.get('name')"></input-field>
     </mat-dialog-content>
 
-    <mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close>Cancel</button>
-      <button mat-button color="primary" type="submit" [disabled]="data.invalid">Save</button>
+    <mat-dialog-actions class="split">
+      <div>
+        <button mat-button type="button" mat-dialog-close color="accent" *ngIf="!data.value.new" (click)="delete(data.value)">Delete</button>
+      </div>
+      <div>
+        <button mat-button type="button" mat-dialog-close>Cancel</button>
+        <button mat-button type="submit" color="primary" [disabled]="data.invalid">Save</button>
+      </div>
     </mat-dialog-actions>
   </form>
 </ng-template>

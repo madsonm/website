@@ -4,5 +4,11 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/bb/*": {
+    "target": "http://madson.me",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }

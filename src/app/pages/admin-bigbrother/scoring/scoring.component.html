@@ -24,6 +24,7 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="edit(r)">Edit</button>
         <button mat-menu-item (click)="add(r)">Copy</button>
+        <button mat-menu-item (click)="delete(r)">Delete</button>
       </mat-menu>
     </td>
   </ng-container>
@@ -44,9 +45,14 @@
       <input-field label="Point Value" [control]="data.get('score')" hint="This is a hint"></input-field>
     </mat-dialog-content>
 
-    <mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close>Cancel</button>
-      <button mat-button color="primary" type="submit" [disabled]="data.invalid">Save</button>
+    <mat-dialog-actions class="split">
+      <div>
+        <button mat-button type="button" mat-dialog-close color="accent" *ngIf="!data.value.new" (click)="delete(data.value)">Delete</button>
+      </div>
+      <div>
+        <button mat-button type="button" mat-dialog-close>Cancel</button>
+        <button mat-button type="submit" color="primary" [disabled]="data.invalid">Save</button>
+      </div>
     </mat-dialog-actions>
   </form>
 </ng-template>
