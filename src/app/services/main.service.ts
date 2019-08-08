@@ -13,10 +13,10 @@ export class MainService implements OnDestroy {
   }
 
   get(type: string) {
-    const params = { get: `${type}`.toUpperCase() };
+    const params = { get: type };
 
     return this.http
-      .post<any>('/svc/eventFind.cgi', params)
+      .post<any>('/svc/event/find.cgi', params)
       .pipe(untilDestroyed(this));
   }
 
@@ -24,13 +24,13 @@ export class MainService implements OnDestroy {
     const input = { name: event };
 
     return this.http
-      .post<any>('/svc/eventGet.cgi', input)
+      .post<any>('/svc/event/get.cgi', input)
       .pipe(untilDestroyed(this));
   }
 
   addAttendee(input) {
     return this.http
-      .post<any>('/svc/eventSignup.cgi', input)
+      .post<any>('/svc/event/signup.cgi', input)
       .pipe(untilDestroyed(this));
   }
 

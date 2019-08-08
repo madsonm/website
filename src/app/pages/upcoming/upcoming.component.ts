@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class UpcomingComponent implements OnInit {
   data = null;
 
-  constructor(private router: Router, private service: MainService) {}
+  constructor(private router: Router, private service: MainService) { }
 
   ngOnInit() {
     this.service.get('UPCOMING').subscribe(response => {
@@ -20,12 +20,8 @@ export class UpcomingComponent implements OnInit {
     });
   }
 
-  gotoEvent(event) {
-    if (event.type === 'tuesday') {
-      this.router.navigateByUrl('/tuesday');
-    } else if (event.type === 'thursday') {
-      this.router.navigateByUrl('/thursday');
-    } else if (event.link) {
+  goto(event) {
+    if (event.link) {
       this.router.navigateByUrl(event.link);
     }
   }

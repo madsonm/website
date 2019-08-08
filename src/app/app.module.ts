@@ -30,6 +30,7 @@ import { AdminBigbrotherSeasonsComponent } from './pages/admin-bigbrother/season
 import { BbSelectEventComponent } from './components/bb-select-event/bb-select-event.component';
 import { BbSelectHouseguestComponent } from './components/bb-select-houseguest/bb-select-houseguest.component';
 import { BbSelectPlayerComponent } from './components/bb-select-player/bb-select-player.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { BbSelectPlayerComponent } from './components/bb-select-player/bb-select
     TuesdayComponent,
     ThursdayComponent,
     LegendaryComponent,
+    AdminComponent,
     AdminBigbrotherComponent,
     AdminBigbrotherAdjustmentsComponent,
     AdminBigbrotherEventsComponent,

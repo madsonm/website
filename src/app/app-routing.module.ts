@@ -14,20 +14,24 @@ import { AdminBigbrotherPicksComponent } from './pages/admin-bigbrother/picks/pi
 import { AdminBigbrotherPlayersComponent } from './pages/admin-bigbrother/players/players.component';
 import { AdminBigbrotherScoringComponent } from './pages/admin-bigbrother/scoring/scoring.component';
 import { AdminBigbrotherSeasonsComponent } from './pages/admin-bigbrother/seasons/seasons.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 
 const routes: Routes = [
   { path: '', component: UpcomingComponent, data: { title: 'Upcoming Events' } },
   { path: 'upcoming', component: UpcomingComponent, data: { title: 'Upcoming Events' } },
   { path: 'event', component: EventComponent, data: { title: 'Events' } },
-  { path: 'event/:event', component: EventComponent, data: { title: 'Events' } },
-  { path: 'admin/event', component: AdminEventComponent, data: { title: 'Event Administration' } },
-  { path: 'admin/event/:event', component: AdminEventComponent, data: { title: 'Events Administration' } },
   { path: 'tuesday', component: TuesdayComponent, data: { title: 'Tuesday' } },
   { path: 'thursday', component: ThursdayComponent, data: { title: 'Thursday' } },
-  { path: 'legendary', component: LegendaryComponent, data: { title: 'Legendary' } },
-  { path: 'admin/bigbrother', component: AdminBigbrotherComponent, data: { title: 'Big Brother Administration' } },
+  { path: 'event/:event', component: EventComponent, data: { title: 'Events' } },
 
+  { path: 'admin', component: AdminComponent, data: { title: 'Administration' } },
+  { path: 'admin/event', component: AdminEventComponent, data: { title: 'Event Administration' } },
+  { path: 'admin/event/:event', component: AdminEventComponent, data: { title: 'Events Administration' } },
+
+  { path: 'legendary', component: LegendaryComponent, data: { title: 'Legendary' } },
+
+  { path: 'admin/bigbrother', component: AdminBigbrotherComponent, data: { title: 'Big Brother Administration' } },
   { path: 'admin/bigbrother/adjustments', component: AdminBigbrotherAdjustmentsComponent },
   { path: 'admin/bigbrother/events', component: AdminBigbrotherEventsComponent },
   { path: 'admin/bigbrother/houseguests', component: AdminBigbrotherHouseguestsComponent },
