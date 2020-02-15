@@ -1,6 +1,0 @@
-<mat-form-field>
-  <mat-label></mat-label>
-  <mat-select name="ekey" [formControl]="control" [compareWith]="compare" (change)="doChange()">
-    <mat-option *ngFor="let option of options" [value]="option.ekey">{{option.name}}</mat-option>
-  </mat-select>
-</mat-form-field>
