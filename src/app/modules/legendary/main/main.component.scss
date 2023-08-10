@@ -1,0 +1,72 @@
+::ng-deep app-legendary-main {
+    form > div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1em;
+
+        :nth-column(2),
+        :nth-column(3) {
+            width:20em;
+        }
+    }
+
+    > div {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        column-gap: 1em;
+        row-gap: 1em;
+        margin: 1em;
+    }
+
+    article.keyword {
+        font-size: 12px;
+        line-height: 1.2em;
+
+        padding: 1em;
+        height: 146mm;
+        background-color: #fff;
+
+        &.less {
+            height: 16em;
+            overflow: hidden;
+        }
+
+        &.hide {
+            display: none;
+        }
+
+        h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0;
+        }
+
+        footer {
+            text-align: center;
+        }
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    ul {
+        padding-inline-start: 1.2em;
+    }
+
+    li {
+        text-align: justify;
+        margin-bottom: 0.2em;
+    }
+
+    img {
+        height: 1.2em;
+        vertical-align: middle;
+    }
+
+    .flavor {
+        color: #666;
+    }
+}

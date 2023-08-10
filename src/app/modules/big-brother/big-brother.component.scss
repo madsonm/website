@@ -1,0 +1,30 @@
+:host {
+	> div {
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		> div {
+			border: 2px solid black;
+			margin: 1em;
+		}
+
+		h4 {
+			text-align: center;
+			margin-bottom: 0.2em;
+			line-height: 1em;
+		}
+	}
+}
+
+.mobile :host > div > div {
+	width: 6em;
+	img {
+		max-width: 100%;
+	}
+
+	h4 {
+		font-size: x-small;
+	}
+}

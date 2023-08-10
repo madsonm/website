@@ -1,0 +1,8 @@
+<div *ngIf="houseguests">
+	<div *ngFor="let h of houseguests">
+		<img src="/img/bb/{{h.hkey}}.jpg" [alt]="h.fullname + ' - Big Brother'"/>
+		<h4><strong>{{h.fullname}}</strong></h4>
+	</div>
+</div>
+
+<pre>{{houseguests | json}}</pre>

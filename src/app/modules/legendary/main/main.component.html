@@ -1,0 +1,67 @@
+<div *ngIf="selected?.length">
+	<article *ngFor="let rec of selected | orderBy:'+keyword'" class="keyword {{rec.less ? 'less' : ''}}">
+		<header>
+			<h2 class="split">
+				<span>{{rec.keyword}}</span>
+				<div>
+					<mat-icon (click)="rec.less=true" *ngIf="!rec.less">expand_more</mat-icon>
+					<mat-icon (click)="rec.less=false" *ngIf="rec.less">expand_less</mat-icon>
+					<mat-icon (dblclick)="deselect(rec)">favorite</mat-icon>
+				</div>
+			</h2>
+		</header>
+		<div *ngFor="let c of rec.content">
+			<p *ngIf="c.flavor"><em [innerHtml]="c.flavor | legendaryStyles | legendaryIcons" class="flavor"></em></p>
+			<p *ngIf="c.definition"><strong [innerHtml]="c.definition | legendaryStyles | legendaryIcons"></strong></p>
+			<p *ngIf="c.text" [innerHtml]="c.text | legendaryStyles | legendaryIcons"></p>
+			<ul *ngIf="c.list">
+				<li *ngFor="let l of c.list" [innerHtml]="l | legendaryStyles | legendaryIcons"></li>
+			</ul>
+		</div>
+		<footer *ngIf="rec.source"><small><em>{{rec.source.join(' / ')}}</em></small></footer>
+	</article>
+</div>
+
+<form [formGroup]="filterForm">
+	<div>
+		<strong>Filters:</strong>
+		<div class="grid50x2">
+			<mat-form-field>
+				<mat-label>Keyword</mat-label>
+				<mat-select formControlName="keyword">
+					<mat-option *ngFor="let keyword of keywords" [value]="keyword">{{keyword}}</mat-option>
+				</mat-select>
+				<mat-icon matSuffix (click)="$event.stopPropagation();clear('keyword')">close</mat-icon>
+			</mat-form-field>
+
+			<mat-form-field>
+				<mat-label>Source</mat-label>
+				<mat-select formControlName="source">
+					<mat-option *ngFor="let source of sources" [value]="source">{{source}}</mat-option>
+				</mat-select>
+				<mat-icon matSuffix (click)="$event.stopPropagation();clear('source')">close</mat-icon>
+			</mat-form-field>
+		</div>
+	</div>
+</form>
+
+
+<div>
+	<article *ngFor="let rec of getData() | orderBy:'+keyword'" [ngClass]="{'hide':isSelected(rec)}" class="keyword">
+		<header>
+			<h2 class="split">
+				<span>{{rec.keyword}}</span>
+				<mat-icon (dblclick)="select(rec)">favorite_border</mat-icon>
+			</h2>
+		</header>
+		<div *ngFor="let c of rec.content">
+			<p *ngIf="c.flavor"><em [innerHtml]="c.flavor | legendaryStyles | legendaryIcons" class="flavor"></em></p>
+			<p *ngIf="c.definition"><strong [innerHtml]="c.definition | legendaryStyles | legendaryIcons"></strong></p>
+			<p *ngIf="c.text" [innerHtml]="c.text | legendaryStyles | legendaryIcons"></p>
+			<ul *ngIf="c.list">
+				<li *ngFor="let l of c.list" [innerHtml]="l | legendaryStyles | legendaryIcons"></li>
+			</ul>
+		</div>
+		<footer *ngIf="rec.source"><small><em>{{rec.source.join(' / ')}}</em></small></footer>
+	</article>
+</div>

@@ -1,0 +1,6 @@
+{
+    "javascript.format.insertSpaceAfterCommaDelimiter": false,
+    "typescript.format.insertSpaceAfterCommaDelimiter": false,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false
+}
