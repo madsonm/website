@@ -1,0 +1,17 @@
+<div *ngIf="scores?.length > 0">
+	<div *ngFor="let s of scores | orderBy:'+rank'">
+		<div>
+			<span>
+				<span *ngIf="s.rank">{{s.rank | numberOrdinal}}. </span>
+				{{s.name}}
+				<a routerLink="/bb/player/{{s.pkey}}">
+					<mat-icon [inline]="true">article</mat-icon>
+				</a>
+			</span>
+			<span>{{s.score | number:'1.2-2'}}</span>
+		</div>
+		<div class="right">
+			<img *ngFor="let h of s.current" src="/img/bb/{{h.hkey}}.jpg" [class]="getClass(h)"/>
+		</div>
+	</div>
+</div>

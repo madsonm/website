@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SessionStorage } from 'ngx-store';
+import { SessionStorage } from 'ngx-webstorage';
 
 @Component({
 	selector: 'app-big-brother',
@@ -7,7 +7,6 @@ import { SessionStorage } from 'ngx-store';
 	styleUrls: ['./big-brother.component.scss']
 })
 export class BigBrotherComponent {
-	@SessionStorage('/cgi/bb/houseguestsfind.cgi') houseguests: any[];
-
+	@SessionStorage() season: string;
 	constructor() { }
 }

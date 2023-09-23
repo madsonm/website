@@ -1,6 +1,6 @@
 import { HttpEvent,HttpHandler,HttpInterceptor,HttpRequest,HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SessionStorageService } from 'ngx-store';
+import { SessionStorageService } from 'ngx-webstorage';
 import { Observable,of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -11,13 +11,11 @@ export class CacheInterceptor implements HttpInterceptor {
 	public static cache = 'Keep-Cache';
 	public static reset = 'Reset-Cache';
 
-	public static cacheKey(url: string): string { return `cache_${url}`; }
-
-
 	private getStorage(request: HttpRequest<any>): HttpResponse<any> | null {
 		if (request.method === 'GET' || (request.method === 'POST' && !request.body)) {
 			if (request.headers.has(CacheInterceptor.cache) && !request.headers.has(CacheInterceptor.reset)) {
-				let data = this.session.get(CacheInterceptor.cacheKey(request.url));
+				const key = request.headers.get(CacheInterceptor.cache);
+				let data = this.session.retrieve(key);
 
 				if (this.isValid(data)) {
 					const body = { success: 'CACHE',data };
@@ -33,7 +31,8 @@ export class CacheInterceptor implements HttpInterceptor {
 		if (request.headers.has(CacheInterceptor.cache)) {
 			if (response.body && typeof response.body === 'object' && (response.body.success || (!response.body.warning && !response.body.error))) {
 				if (this.isValid(response.body.data)) {
-					this.session.set(CacheInterceptor.cacheKey(request.url),response.body.data);
+					const key = request.headers.get(CacheInterceptor.cache);
+					this.session.store(key,response.body.data);
 				}
 			}
 		}

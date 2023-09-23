@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HTTP_INTERCEPTORS,HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { WebStorageModule } from 'ngx-store';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { AdminGuard } from './core/guards/admin.guard';
@@ -26,10 +26,10 @@ import { LegendaryModule } from './modules/legendary/legendary.module';
 	,imports: [
 		BrowserModule
 		,BrowserAnimationsModule
-		,HttpClientModule
-		,WebStorageModule
-		,NgxUiLoaderModule.forRoot({fastFadeOut: true})
 		,MaterialModule
+		,HttpClientModule
+		,NgxUiLoaderModule
+		,NgxWebstorageModule.forRoot({prefix:'mjm',separator:'_'})
 		,SharedModule
 		,BigBrotherModule
 		,LegendaryModule

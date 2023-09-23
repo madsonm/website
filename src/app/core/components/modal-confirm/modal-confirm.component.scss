@@ -1,0 +1,7 @@
+:host .mat-dialog-container {
+	width: 32em !important;
+
+	& > p {
+		text-align: justify;
+	}
+}

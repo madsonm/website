@@ -1,0 +1,9 @@
+<div *ngIf="houseguests">
+	<div *ngFor="let r of houseguests">
+		<houseguest [h]="r"></houseguest>
+		<h4>
+			<strong>{{r.fullname}}</strong>
+			<strong>{{r.name | titlecase}}</strong>
+		</h4>
+	</div>
+</div>

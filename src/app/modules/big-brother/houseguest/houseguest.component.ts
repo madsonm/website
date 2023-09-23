@@ -1,19 +1,22 @@
-import { Component,Input,OnInit } from '@angular/core';
-import { SessionStorage } from 'ngx-store';
+import { Component,Input } from '@angular/core';
 import { BigBrotherService } from '../big-brother.service';
 
 @Component({
-	selector: 'app-houseguest',
+	selector: 'houseguest',
 	templateUrl: './houseguest.component.html',
 	styleUrls: ['./houseguest.component.scss']
 })
-export class HouseguestComponent implements OnInit {
-	@SessionStorage('/cgi/bb/houseguestsfind.cgi') houseguests: any[];
-	@Input() key: string;
+export class HouseguestComponent {
+	@Input('h') houseguest: any;
 
 	constructor(private service: BigBrotherService) { }
 
-	ngOnInit(): void {
 
+	getClasses(): string {
+		return 'houseguest'
+			+ (this.houseguest.evicted ? ' evicted' : '')
+			+ (this.houseguest.nominated ? ' nominated' : '')
+			+ (this.houseguest.pov ? ' pov' : '')
+			+ (this.houseguest.saved ? ' saved' : '')
 	}
 }

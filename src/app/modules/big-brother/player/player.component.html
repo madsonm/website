@@ -1,0 +1,35 @@
+<logo></logo>
+
+<header>
+	<h1>
+		<div>{{player.name}}</div>
+		<div>
+			<div>{{player.rank | numberOrdinal}} place</div>
+			<div>{{player.score | number:'1.2-2'}}</div>
+		</div>
+	</h1>
+</header>
+
+<div>
+	<div *ngFor="let p of player.picks">
+		<img src="/img/bb/{{p.hkey}}.jpg" class="{{getClass(p)}}" (click)="doChange(p)" />
+		<div>{{p.score}}</div>
+	</div>
+</div>
+<br />
+<div *ngIf="player?.chart">
+
+	<ngx-charts-bar-horizontal-stacked
+
+		[results]="player.chart"
+		[gradient]="false"
+		[xAxis]="true"
+		[yAxis]="true"
+		[legend]="true"
+		[legendPosition]="legendPosition"
+		[legendTitle]="''"
+		[showXAxisLabel]="true"
+		[showYAxisLabel]="false"
+		[xAxisLabel]="'Points'">
+	</ngx-charts-bar-horizontal-stacked>
+</div>

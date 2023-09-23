@@ -1,0 +1,18 @@
+:host {
+}
+
+.select-houseguest {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	> img {
+		width: 2em;
+		height: 2em;
+		object-fit: cover;
+		object-position: 50% 20%;
+	}
+	> span {
+		margin-left: 1em;
+	}
+}

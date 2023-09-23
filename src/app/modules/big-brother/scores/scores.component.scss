@@ -1,0 +1,64 @@
+:host {
+	> div {
+		> div {
+			margin: 0.5em auto;
+			padding: 0.5em 0;
+			border-bottom: 0.5px solid #ddd;
+
+			&:last-child {
+				border-bottom: 0;
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+
+			> div:first-child {
+				display: flex;
+				justify-content: space-between;
+
+				> span:first-child {
+					font-weight: bolder;
+					font-size: 2em;
+					line-height: 1em;
+
+					> a {
+						font-size: 0.5em;
+						line-height: 1em;
+					}
+
+					> span {
+						display: inline-block;
+						font-size: 0.5em;
+						width: 2.5em;
+					}
+				}
+
+				> span:last-child {
+					font-weight: bolder;
+					font-size: 2em;
+					line-height: 1em;
+				}
+			}
+
+			> div:last-child {
+				display: flex;
+				justify-content: flex-end;
+
+				> img {
+					width: 3em;
+					height: 3em;
+					object-fit: cover;
+					object-position: 50% 20%;
+					margin-left: 0.05em;
+					border-radius: 0.5em;
+					border: 2px solid transparent;
+
+					&.hoh { border-color:lime; }
+					&.pov { border-color:gold; }
+					&.hoh.pov { border-color:yellowgreen; }
+					&.nominated { border-color:red; }
+					&.evicted { filter:grayscale(1); }
+				}
+			}
+		}
+	}
+}

@@ -1,8 +1,14 @@
-<div *ngIf="houseguests">
-	<div *ngFor="let h of houseguests">
-		<img src="/img/bb/{{h.hkey}}.jpg" [alt]="h.fullname + ' - Big Brother'"/>
-		<h4><strong>{{h.fullname}}</strong></h4>
-	</div>
-</div>
+<logo></logo>
 
-<pre>{{houseguests | json}}</pre>
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+	<mat-tab label="Scores">
+		<ng-container>
+			<app-scores></app-scores>
+		</ng-container>
+	</mat-tab>
+	<mat-tab label="Houseguests">
+		<ng-container>
+			<app-houseguests></app-houseguests>
+		</ng-container>
+	</mat-tab>
+</mat-tab-group>

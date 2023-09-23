@@ -1,3 +1,4 @@
+import { NgxMatDatetimePickerModule,NgxMatNativeDateModule,NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NgModule } from '@angular/core';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -6,8 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MAT_DIALOG_DEFAULT_OPTIONS,MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS,MatFormFieldModule } from '@angular/material/form-field';
@@ -29,21 +29,32 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxUiLoaderConfig,NgxUiLoaderModule } from 'ngx-ui-loader';
 
 
 @NgModule({
 	imports: [
 		LayoutModule
 		,MatIconModule
+		,NgxMatDatetimePickerModule
+		,NgxMatTimepickerModule
+		,NgxMatNativeDateModule
+		,NgxChartsModule
+
+		// ,NgxMatTimepickerModule
+		// ,MatDatepickerModule
+		// ,NgxMatDatetimePickerModule
+
+		,NgxUiLoaderModule.forRoot({fastFadeOut: true,blur:10} as NgxUiLoaderConfig)
 	]
 	,exports: [
 		MatMenuModule
+		,MatDialogModule
+		,MatInputModule
 		,MatTableModule
 		,MatChipsModule
 		,MatCheckboxModule
-		,MatDatepickerModule
-		,MatDialogModule
-		,MatInputModule
 		,MatProgressBarModule
 		,MatProgressSpinnerModule
 		,MatSelectModule
@@ -68,9 +79,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 		,MatStepperModule
 		,MatDividerModule
 		,MatBottomSheetModule
+		,NgxMatDatetimePickerModule
+		,NgxMatTimepickerModule
+		,NgxMatNativeDateModule
+		,NgxChartsModule
 	]
 	,providers: [
-		{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,useValue: { appearance: 'fill',floatLabel: 'always' } }
+		{ provide: MAT_DIALOG_DEFAULT_OPTIONS,useValue: { autoFocus: false,hasBackdrop: true,width: '30em' } }
+		,{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,useValue: { appearance: 'fill',floatLabel: 'always',hideRequiredMarker: false } }
 		,{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,useValue: { duration: 5000 } }
 	]
 })

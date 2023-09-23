@@ -1,0 +1,85 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+	<h2 mat-dialog-title>Add Event</h2>
+	<mat-dialog-content>
+		<mat-form-field>
+			<mat-label>Event</mat-label>
+			<mat-select formControlName="ekey">
+				<mat-option *ngFor="let s of getScoring()" [value]="s.ekey">{{s.name}}</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+		<!-- <mat-form-field>
+			<mat-label>Event Date</mat-label>
+			<input matInput formControlName="date" [matDatepicker]="picker">
+			<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+			<mat-datepicker #picker></mat-datepicker>
+		</mat-form-field> -->
+
+		<mat-form-field>
+			<mat-label>Event Date</mat-label>
+			<input matInput [ngxMatDatetimePicker]="picker" formControlName="date">
+			<ngx-mat-datepicker-toggle matSuffix [for]="picker"></ngx-mat-datepicker-toggle>
+			<ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="true" [stepHour]="1" [stepMinute]="1" [showSeconds]="false" [enableMeridian]="false" [disableMinute]="false" [hideTime]="false" [touchUi]="true">
+				<ngx-mat-datepicker-actions>
+					<button mat-button ngxMatDatepickerCancel>Cancel</button>
+					<button mat-raised-button color="primary" ngxMatDatepickerApply>Apply</button>
+				</ngx-mat-datepicker-actions>
+			</ngx-mat-datetime-picker>
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Houseguest<span *ngIf="houseguestCount > 1"> #1</span></mat-label>
+			<mat-select formControlName="hkey1">
+				<mat-option *ngFor="let h of getHouseguests('hkey1')" [value]="h.hkey">
+					<div class="select-houseguest">
+						<img matIconPrefix src="/img/bb/{{h.hkey}}.jpg">
+						<span>{{h.name | titlecase}}</span>
+					</div>
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+		<mat-form-field *ngIf="houseguestCount > 1">
+			<mat-label>Houseguest #2</mat-label>
+			<mat-select formControlName="hkey2">
+				<mat-option *ngFor="let h of getHouseguests('hkey2')" [value]="h.hkey">
+					<div class="select-houseguest">
+						<img matIconPrefix src="/img/bb/{{h.hkey}}.jpg">
+						<span>{{h.name | titlecase}}</span>
+					</div>
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+		<mat-form-field *ngIf="houseguestCount > 2">
+			<mat-label>Houseguest #3</mat-label>
+			<mat-select formControlName="hkey3">
+				<mat-option *ngFor="let h of getHouseguests('hkey3')" [value]="h.hkey">
+					<div class="select-houseguest">
+						<img matIconPrefix src="/img/bb/{{h.hkey}}.jpg">
+						<span>{{h.name | titlecase}}</span>
+					</div>
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+		<mat-form-field *ngIf="houseguestCount > 3">
+			<mat-label>Houseguest #4</mat-label>
+			<mat-select formControlName="hkey4">
+				<mat-option *ngFor="let h of getHouseguests('hkey4')" [value]="h.hkey">
+					<div class="select-houseguest">
+						<img matIconPrefix src="/img/bb/{{h.hkey}}.jpg">
+						<span>{{h.name | titlecase}}</span>
+					</div>
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</mat-dialog-content>
+	<mat-dialog-actions align="end">
+		<div>
+			<button mat-button type="button" mat-dialog-close>Cancel</button>
+			<button mat-button type="button" [disabled]="form.invalid || form.pristine" (click)="now()">Now</button>
+			<button mat-button type="submit" color="primary" [disabled]="form.invalid || form.pristine">Save</button>
+		</div>
+	</mat-dialog-actions>
+</form>

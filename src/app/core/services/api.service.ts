@@ -1,7 +1,7 @@
 import { HttpClient,HttpErrorResponse,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UntilDestroy } from '@ngneat/until-destroy';
-import { SessionStorageService } from 'ngx-store';
+import { SessionStorageService } from 'ngx-webstorage';
 import { Observable,interval,of,throwError } from 'rxjs';
 import { catchError,filter,startWith,switchMap,tap } from 'rxjs/operators';
 import { CacheInterceptor } from '../interceptors/cache.interceptor';
@@ -15,7 +15,7 @@ export interface ServiceRequest {
 	body?: any;
 	message?: string;
 	confirm?: any;      // Whether to show a success snackbar on response.success
-	cache?: boolean;    // Whether to cache the data
+	cache?: string;     // What name to cache data under (null means no caching)
 	force?: boolean;    // Whether to reset the cache (force service call)
 	polling?: number;    // Whether to poll this request, and if so the number of seconds between service calls
 	type?: any;
@@ -125,16 +125,16 @@ export class ApiService {
 		if (req.action === 'POST' && !!req.params) { return; } // Persist is not allowed on POST calls with input data
 
 		const request = { ...req };
-		const key = CacheInterceptor.cacheKey(request.url);
+		const key = request.cache ?? null;
 
-		if (this.persist[key]) { return; }  // Don't double-persist
+		if (key && this.persist[key]) { return; }  // Don't double-persist
 
 		// Redefine our request for cache updating only
 		delete request.confirm;
 		delete request.message;
 		delete request.persist;
 		delete request.polling;
-		request.cache = true;
+//		request.cache = true;
 		request.force = true;
 
 		this.persist[key] = true;  // Remember we are already persisting this service
@@ -183,7 +183,7 @@ export class ApiService {
 		// Apply data-pass headers (picked up and removed in interceptor)
 		const headers = {} as any;
 		if (request.cache) {
-			headers[CacheInterceptor.cache] = 'cache';   // Cache results
+			headers[CacheInterceptor.cache] = request.cache;   // Cache results
 
 			if (request.force) {
 				headers[CacheInterceptor.reset] = 'reset';   // Cache results but force update on this call

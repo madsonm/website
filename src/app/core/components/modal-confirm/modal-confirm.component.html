@@ -1,0 +1,15 @@
+<mat-dialog>
+	<h1 mat-dialog-title>
+		<span>{{title}}</span>
+		<div *ngIf="subtitle"><small>{{subtitle}}</small></div>
+	</h1>
+
+	<mat-dialog-content>
+		<p *ngFor="let line of body" [innerHtml]="line"></p>
+	</mat-dialog-content>
+
+	<mat-dialog-actions align="end">
+		<button mat-button type="button" *ngIf="cancel" mat-dialog-close>Cancel</button>
+		<button mat-button type="submit" color="primary" (click)="confirm()">{{button | titlecase}}</button>
+	</mat-dialog-actions>
+</mat-dialog>

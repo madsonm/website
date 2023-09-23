@@ -1,0 +1,9 @@
+:host {
+	> h1 {
+		text-align: center;
+
+		img.admin {
+			filter:drop-shadow(0 0 0.75rem #0f0);
+		}
+	}
+}
