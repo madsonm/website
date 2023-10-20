@@ -6,6 +6,7 @@ import { EventsComponent } from './admin/events/events.component';
 import { ModalEventAddComponent } from './admin/events/modal-event-add/modal-event-add.component';
 import { BigBrotherComponent } from './big-brother.component';
 import { BigBrotherRoutingModule } from './big-brother.route';
+import { HistoryComponent } from './history/history.component';
 import { HouseguestComponent } from './houseguest/houseguest.component';
 import { HouseguestsComponent } from './houseguests/houseguests.component';
 import { LogoComponent } from './logo/logo.component';
@@ -23,6 +24,7 @@ import { ScoresComponent } from './scores/scores.component';
 		,HouseguestsComponent
 		,ModalEventAddComponent
 		,PlayerComponent
+		,HistoryComponent
 		,LogoComponent
 	]
 	,imports: [
@@ -38,6 +40,7 @@ import { ScoresComponent } from './scores/scores.component';
 		,HouseguestsComponent
 		,ModalEventAddComponent
 		,PlayerComponent
+		,HistoryComponent
 		,LogoComponent
 	]
 })

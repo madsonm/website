@@ -48,6 +48,18 @@ export class BigBrotherService {
 		return this.api.call(request).pipe(map(response => (response || {}).data || []));
 	}
 
+	history(): Observable<any> {
+		const request = {
+			action: 'POST'
+			,url: '/cgi/bb/scoresChart.cgi'
+			,message: 'Getting Charts'
+			,cache: 'charts'
+			,force: true
+		} as ServiceRequest;
+
+		return this.api.call(request).pipe(map(response => (response || {}).data || []));
+	}
+
 
 	player(pkey: string): Observable<any> {
 		const request = {
