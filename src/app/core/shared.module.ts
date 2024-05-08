@@ -15,6 +15,7 @@ import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.
 import { AdminGuard } from './guards/admin.guard';
 import { DataGuard } from './guards/data.guard';
 import { MaterialModule } from './material.module';
+import { FilterByNotPipe } from './pipes/filter-by-not.pipe';
 
 @NgModule({
 	imports: [
@@ -30,6 +31,7 @@ import { MaterialModule } from './material.module';
 	,declarations: [
 		NumberOrdinalPipe
 		,SubsetPipe
+		,FilterByNotPipe
 		,ModalConfirmComponent
 	]
 	,exports: [
@@ -43,6 +45,7 @@ import { MaterialModule } from './material.module';
 		,NgPipesModule
 		,NumberOrdinalPipe
 		,SubsetPipe
+		,FilterByNotPipe
 		,ModalConfirmComponent
 	]
 	,providers: [

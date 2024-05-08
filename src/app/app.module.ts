@@ -28,9 +28,9 @@ import { LegendaryModule } from './modules/legendary/legendary.module';
 		,MaterialModule
 		,HttpClientModule
 		,NgxUiLoaderModule
-		,NgxWebstorageModule.forRoot({prefix:'mjm',separator:'_'})
+		,NgxWebstorageModule.forRoot({ prefix: 'mjm',separator: '_' })
 		,SharedModule
-//		,BigBrotherModule
+		//,BigBrotherModule
 		,LegendaryModule
 		,FoodModule
 		,AppRoutingModule

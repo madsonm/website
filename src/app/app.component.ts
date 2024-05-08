@@ -12,9 +12,9 @@ export class AppComponent {
 	navRef: MatDialogRef<any>;
 	navLinks = [
 		//{ url: '/bb',name: 'BB',longname: 'Big Brother',detail: 'Most recent Big Brother competition' }
-		{ url: '/bb',name: 'BB',longname: 'Big Brother',detail: 'Big Brother Competition Website' }
-		,{ url: '/food',name: 'Food',longname: 'Recipes / Food',detail: 'Commonly used recipes' }
-		,{ url: '/legendary',name: 'Legendary',longname: 'Legendary Keywords',detail: 'Defintions for Marvel Legendary Keywords' }
+		// { url: '/bb',name: 'BB',longname: 'Big Brother',detail: 'Big Brother Competition Website' }
+		// ,{ url: '/food',name: 'Food',longname: 'Recipes / Food',detail: 'Commonly used recipes' }
+		{ url: '/legendary',name: 'Legendary',longname: 'Legendary Keywords',detail: 'Defintions for Marvel Legendary Keywords' }
 	];
 
 	constructor(

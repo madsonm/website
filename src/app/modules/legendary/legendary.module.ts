@@ -4,6 +4,7 @@ import { CUSTOM_ELEMENTS_SCHEMA,NgModule } from '@angular/core';
 import { SharedModule } from '../../core/shared.module';
 import { LegendaryRoutingModule } from './legendary.route';
 
+import { KeywordComponent } from './keyword-card/keyword.component';
 import { LegendaryIconsPipe } from './main/legendary-icons.pipe';
 import { LegendaryStylesPipe } from './main/legendary-styles.pipe';
 import { MainComponent } from './main/main.component';
@@ -13,6 +14,7 @@ import { MainComponent } from './main/main.component';
 		MainComponent
 		,LegendaryStylesPipe
 		,LegendaryIconsPipe
+		,KeywordComponent
 	]
 	,imports: [
 		CommonModule
