@@ -32,13 +32,14 @@ export class LegendaryService {
 		}
 		,{
 			keyword: 'Adapting Masterminds'
-			,source: ['S.H.I.E.L.D.']
-			,represents: 'The HYDRA Super-Adaptoid and the HYDRA High Council constantly adapt their tactics to attack the Heroes in new ways.  Accordingly, each of these Masterminds is a new "Adapting Mastermind" with 4 different Master Strikes.'
+			,source: ['S.H.I.E.L.D.','2099']
+			,represents: 'The HYDRA Super-Adaptoid and the HYDRA High Council constantly adapt their tactics to attack the Heroes in new ways.  Accordingly, each of these Masterminds is a new "Adapting Mastermind" with 4 different Master Strikes.  Similarly, the Sinister Six 2099 and Alchemax Executives aren\'t just a single Mastermind.  Instead, they are teams of arch-villains working together, adapting to use different Master Strikes and abilities.'
 			,clarification: [
-				'A Normal Mastermind has a Mastermind card and 4 Mastermind Tactic cards. An Adapting Mastermind instead has just 4 Mastermind Tactic cards. Whichever Tactic is currently on top of the stack of Tactics counts as the current Mastermind card.'
-				,'Say you are using Hydra Super-Adaptoid as your Mastermind. Keep all his tactics in a face up stack. Use only the rules on that top card, ignoring the rest of the cards in the stack.'
-				,'Whenever an Adapting Mastermind does a Master Strike, it says "<strong>Adapt</strong>" at the end. This means "<strong>Shuffle the Mastermind Tactics and randomly put one on top, face up</strong>." You might randomly pick the same Tactic that was previously on top, or it might be a different Tactic.'
+				'A Normal Mastermind has a Mastermind card and 4 Mastermind Tactic cards. An Adapting Mastermind instead has just 4 or 6 Mastermind Tactic cards. Whichever Tactic is currently on top of the stack of Tactics counts as the current Mastermind card.'
+				,'Keep all of the Tactics in a face up stack. Use only the rules on that top card, ignoring the rest of the cards in the stack.'
+				,'During the "Setup" and whenever an Adapting Mastermind does a Master Strike, it says "<strong>Adapt</strong>" at the end. This means "<strong>Shuffle the Mastermind Tactics and randomly put one on top, face up</strong>." You might randomly pick the same Tactic that was previously on top, or it might be a different Tactic.  It keeps any Bystanders it held.'
 				,'Likewise, when you fight an Adapting Mastermind, you always fight the Tactic currently on top of the stack. You ignore all the card abilities and [ATTACK] bonuses that are not currently on top of the stack. The "Fight" ability also says "Adapt" at the end. So you put the Tactic you just fought into your Victory Pile, do its Fight effect, then shuffle the remaining Tactics and randomly put one on top, face up.'
+				,'Some Adapting Masterminds are double-sided "Epic" Adapting Masterminds.  During setup, turn all the Tactics to either the normal side or the much harder Epic side.  Don\'t change which side is face up when they Adapt.  Don\'t use these with Schemes that call for Mastermind Tactics to be shuffled into the decks of non-double-sided cards.'
 			]
 		}
 		,{
@@ -896,13 +897,14 @@ export class LegendaryService {
 		}
 		,{
 			keyword: 'Undercover'
-			,source: ['S.H.I.E.L.D.','Black Widow']
+			,source: ['S.H.I.E.L.D.','Black Widow','2099']
 			,represents: 'This keyword represents the Black Widows, their contacts or S.H.I.E.L.D. agents going off the grid on special missions to recover valuable intel.'
 			,definition: 'Some cards say things like "You may send a <strong>[S.H.I.E.L.D.]</strong> Hero from your hand Undercover."  This means "<strong><em>Put that Hero into your Victory Pile. It\'s worth 1VP."</em></strong>'
 			,clarification: [
 				'This helps get your starting S.H.I.E.L.D. Agents and Troopers out of your deck so that you draw more powerful Heroes more often. You can also use it to get rid of other S.H.I.E.L.D. cards like Officers that you might not need later in the game. The main Heroes in this set are all part of the <strong>[S.H.I.E.L.D.]</strong> team too, so you can also send their cards Undercover.'
-				,'If you play a card, and it sends itself Undercover, you still get its [RECRUIT] and [ATTACK].'
-				,'<strong>When Recruited: Send This Undercover</strong> mean you pat the Hero\'s normal recruit cost, put it in your Victory Pile worth 1VP and refull that HQ space with a card from the Hero Deck.'
+				,'If you play a card that sends itself <strong>Undercover</strong>, you still get the [ATTACK], [RECRUIT] and other abilities.'
+				,'For example, if you play a [STRENGTH] card that sends itself <strong>Undercover</strong>, you still played a [STRENGTH] card, so you can still use another card\'s "[STRENGTH]: Draw a card" Superpower ability.  However it\'s no longer on of "your Heroes" or "Heroes you have."'
+				,'<strong>When Recruited: Send This Undercover</strong> mean you get the Hero\'s normal recruit cost, put it in your Victory Pile worth 1VP and refull that HQ space with a card from the Hero Deck.'
 				,'Sending <strong>[S.H.I.E.L.D.]</strong> Heroes Undercover is also key to increasing your S.H.I.E.L.D. Level.'
 				,'If you recruit a Hero with multiple effects telling you to put it in different places (like Wall-Crawl, Soaring Flight, "When Recruited: Send this Undercover", etc.), you choose which one applies.'
 			]
@@ -1396,6 +1398,47 @@ export class LegendaryService {
 				,'You can use [ATTACK] that\'s "only usable against Masterminds" (like Liberate) on additional [ATTACK] that Mastermind abilities ask you to spend, like when Hank Pym Yellowjacket requires extra [ATTACK] to "track him down."'
 			]
 		}
+		,{
+			keyword: 'Cyber-Mods'
+			,source: ['2099']
+			,represents: 'In 2099, weak organic flesh is quickly becoming obsolete.  Desperate Heroes work with underground hacker-docs to augment their bodies with cybernetic enhancements, unleashing raw power.'
+			,definition: 'Some Heroes say things like "<strong>Cyber-Mod</strong> [TECH]: Draw a card."  You may use a Cyber-Mod ability only if you have a card of the listed Hero Class in your Victory Pile.  Villains and Masterminds use their Cyber-Mod abilities only while there are cards of the listed Hero Classes in the Escape Pile.'
+			,clarification: [
+				'Likewise, you can use "<strong>Cyber-Mod</strong> [RANGED][RANGED][RANGED]: You get <strong>+2</strong> [ATTACK]" only if you have at least 3 [RANGED] cards in your Vitory Pile'
+				,'The Heroes that use <strong>Cyber-Mods</strong> have ways to send cards <strong>Undercover</strong>.  Thiscan help you put the right cards into your Victory Pile to activate your <strong>Cyber-Mods</strong>.'
+				,'The cyber-tech that infused Hulk 2099 with gamma rays lets him push his pain under the surface, channeling it into ever more strength and rage.  Accordingly, Hulk 2099 can send <em>Wounds</em> <strong>Undercover</strong> and use "<strong>Cyber-Mods</strong> Wound" abilities in the same way.'
+				,'If a Villain escapes the city with a captured Hero, that Hero card stays in the Escape Pile and can help activate all enemies\' <strong>Cyber-Mods</strong>.'
+				,'<strong>Cyber-Mod</strong> Enemies also have ways to put Hero cards directly into the Escape Pile, helping activate <strong>Cyber-Mods</strong>.'
+			]
+		}
+		,{
+			keyword: 'Fated Future'
+			,source: ['2099']
+			,represents: 'Marvel 2099 shows a chilling vision of what could come to pass if the characters of the Marvel Universe don\'t change Earth\'s fate.  Sometimes fate can seem inevitable... until someone finds the courage to turn the future in a new direction.  This is represented by the <strong>Fated Future</strong> keyword.'
+			,definition: '<strong>When you play a card with Fated Future, you may put it on the bottom of your deck.</strong>'
+			,clarification: [
+				'This helps you draw the card again more quickly than if you discarded it, waited for your discard pile to shuffle into a new deck, then waited to draw the card.'
+				,'You can "predict the future" of when you\'ll see it again.'
+				,'You can also increase the chances you will draw multiple <strong>Fated Future</strong> cards in the same powerful hand once you get to the bottom of your deck.'
+				,'If you play a card with <strong>Fated Future</strong> that sends itself to the bottom of your deck, you still get the [ATTACK], [RECRUIT] and other abilities.'
+				,'For example, if you play a [STRENGTH] card and send it somewhere this way, you still played a [STRENGTH] card, so you can still use another card\'s "[STRENGTH]: Draw a card" Superpower ability.  However it\'s no longer on of "your Heroes" or "Heroes you have."'
+			]
+		}
+		,{
+			keyword: 'Uru-Enchanted Weapons'
+			,source: ['Legendary®: Fear Itself','2099']
+			,represents: 'To corrupt the people of 2099\'s faith in ancient Heroes, Alchemax creates false Asgardian "gods."  They combine nanotech and nuclear fusion to engineer jaw-dropping weapons that mimic the power of the fabled Mjolnir.  These use the <strong>Uru-Enchanted Weapons</strong> keyword.'
+			,definition: '<strong>When you try to fight an Enemy that has some number of Uru-Enchanted Weapons, reveal that many cards from the top of the Villain Deck.  That Enemy immediately gains + [ATTACK] equal to the total Victory Points of all the4 cards you revealed.</strong>'
+			,clarification: [
+				'If you have at least as many [ATTACK] points as the Enemy\'s improved [ATTACK], use them and defeat the Enemy as normal.  If you don\'t have enough [ATTACK] points, you don\'t defeat this Enemey, you lose all your [ATTACK] points, and you can\'t use fight anymore this turn.  (You can still play cards and recruit - you just can\'t fight or Heal Wounds.)'
+				,'<strong>Whether you defeat that Enemy or not, pul all the cards you revealed from the Villain Deck on the bottom of that deck in random order.</strong>'
+				,'Once you start to fight and Enemy, you can\'t play any more cards until after that fight is complete.  Remember to generate all the [ATTACK]  you can before you fight them!'
+				,'Flipping cards for <strong>Uru-Enchanted Weapons</strong> cannot end the game.  If you run out of cards in the Villain Deck, shippe the cards you\'ve revealed so far and keep revealing.  (If there are no cards left in the Villain Deck there is no bones [ATTACK].)'
+				,'Enemies with <strong>Uru-Enchanted Weapons</strong> sometimes also say things like "Fight or Fail: KO one of your Heroes."  <strong>Do the "Fight or Fail" effect if you successfully fight the Enemy or if you try to fight them but the Uru-Enchanted Weapons\' [ATTACK] bonus causes you to fail.</strong>'
+				,'You can\'t try to fight an enemy unless you have enough [ATTACK] points to match the enemy\'s printed [ATTACK].'
+			]
+		}
+	
 	] as MarvelLegendaryKeyword[];
 
 	static template = {
