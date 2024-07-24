@@ -13,7 +13,6 @@ import { SubsetPipe } from 'src/app/core/pipes/subset.pipe';
 import { CUSTOM_DATE_FORMATS,CustomDateAdapter } from './adapters/datetime.adapter';
 import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.component';
 import { AdminGuard } from './guards/admin.guard';
-import { DataGuard } from './guards/data.guard';
 import { MaterialModule } from './material.module';
 import { FilterByNotPipe } from './pipes/filter-by-not.pipe';
 
@@ -50,7 +49,6 @@ import { FilterByNotPipe } from './pipes/filter-by-not.pipe';
 	]
 	,providers: [
 		AdminGuard
-		,DataGuard
 		,TitleCasePipe
 		,{ provide: NgxMatDateAdapter,useClass: CustomDateAdapter }
 		,{ provide: NGX_MAT_DATE_FORMATS,useValue: CUSTOM_DATE_FORMATS }

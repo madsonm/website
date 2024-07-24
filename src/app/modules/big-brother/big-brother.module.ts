@@ -5,6 +5,7 @@ import { SharedModule } from 'src/app/core/shared.module';
 import { EventsComponent } from './admin/events/events.component';
 import { ModalEventAddComponent } from './admin/events/modal-event-add/modal-event-add.component';
 import { BigBrotherComponent } from './big-brother.component';
+import { BigBrotherGuard } from './big-brother.guard';
 import { BigBrotherRoutingModule } from './big-brother.route';
 import { HistoryComponent } from './history/history.component';
 import { HouseguestComponent } from './houseguest/houseguest.component';
@@ -42,6 +43,9 @@ import { ScoresComponent } from './scores/scores.component';
 		,PlayerComponent
 		,HistoryComponent
 		,LogoComponent
+	]
+	,providers: [
+		BigBrotherGuard
 	]
 })
 export class BigBrotherModule { }

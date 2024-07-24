@@ -15,6 +15,7 @@ import { LoggingInterceptor } from './core/interceptors/logging.interceptor';
 import { MaterialModule } from './core/material.module';
 import { LoadingService } from './core/services/loading.service';
 import { SharedModule } from './core/shared.module';
+import { BigBrotherModule } from './modules/big-brother/big-brother.module';
 import { FoodModule } from './modules/food/food.module';
 import { LegendaryModule } from './modules/legendary/legendary.module';
 
@@ -30,7 +31,7 @@ import { LegendaryModule } from './modules/legendary/legendary.module';
 		,NgxUiLoaderModule
 		,NgxWebstorageModule.forRoot({ prefix: 'mjm',separator: '_' })
 		,SharedModule
-		//,BigBrotherModule
+		,BigBrotherModule
 		,LegendaryModule
 		,FoodModule
 		,AppRoutingModule

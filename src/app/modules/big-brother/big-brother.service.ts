@@ -14,12 +14,24 @@ export class BigBrotherService {
 	season(): Observable<any> {
 		const request = {
 			action: 'POST'
-			,url: '/cgi/bb/seasonFind.cgi'
+			,url: '/cgi/bb/season.cgi'
 			,message: 'Getting Season'
 			,cache: 'season'
 		} as ServiceRequest;
 
 		return this.api.call(request).pipe(map(response => response?.season ?? '00'));
+	}
+
+
+	player(pkey: string): Observable<any> {
+		const request = {
+			action: 'POST'
+			,url: '/cgi/bb/players.cgi'
+			,body: {pkey:pkey}
+			,message: 'Getting Player'
+		} as ServiceRequest;
+
+		return this.api.call(request).pipe(map(response => (response || {}).data ?? {}));
 	}
 
 
@@ -58,18 +70,6 @@ export class BigBrotherService {
 		} as ServiceRequest;
 
 		return this.api.call(request).pipe(map(response => (response || {}).data || []));
-	}
-
-
-	player(pkey: string): Observable<any> {
-		const request = {
-			action: 'POST'
-			,url: '/cgi/bb/playerFind.cgi'
-			,body: {pkey:pkey}
-			,message: 'Getting Player'
-		} as ServiceRequest;
-
-		return this.api.call(request).pipe(map(response => (response || {}).data ?? {}));
 	}
 
 

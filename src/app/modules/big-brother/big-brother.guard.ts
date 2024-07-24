@@ -1,17 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot,CanActivate } from '@angular/router';
-import { SessionStorageService } from 'ngx-webstorage';
 import { Observable,forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BigBrotherService } from 'src/app/modules/big-brother/big-brother.service';
 
 @Injectable()
-export class DataGuard implements CanActivate {
-
-	constructor(
-		private service: BigBrotherService
-		,private session: SessionStorageService
-	) { }
+export class BigBrotherGuard implements CanActivate {
+	constructor(private service: BigBrotherService) { }
 
 	canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
 		const season$ = this.service.season()
