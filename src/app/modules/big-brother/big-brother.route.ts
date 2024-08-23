@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule,Routes } from '@angular/router';
-import { AdminGuard } from 'src/app/core/guards/admin.guard';
 import { EventsComponent } from './admin/events/events.component';
 import { BigBrotherComponent } from './big-brother.component';
 import { BigBrotherGuard } from './big-brother.guard';
@@ -14,7 +13,7 @@ const routes: Routes = [
 	,{path: 'bb/scores',component: ScoresComponent,canActivate:[BigBrotherGuard] }
 	,{path: 'bb/houseguests',component: HouseguestsComponent,canActivate:[BigBrotherGuard] }
 	,{path: 'bb/player/:pkey',component: PlayerComponent,canActivate:[BigBrotherGuard] }
-	,{path: 'bb/admin/events',component: EventsComponent,canActivate:[BigBrotherGuard,AdminGuard] }
+	,{path: 'bb/something/something',component: EventsComponent,canActivate:[BigBrotherGuard] }
 	,{ path: 'bb/**',redirectTo: 'bb' }
 ];
 

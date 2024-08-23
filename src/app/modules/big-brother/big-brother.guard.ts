@@ -10,10 +10,12 @@ export class BigBrotherGuard implements CanActivate {
 
 	canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
 		const season$ = this.service.season()
+		const scoring$ = this.service.scoring()
 		const houseguests$ = this.service.houseguests();
 
 		return forkJoin([
 			season$
+			,scoring$
 			,houseguests$
 		]).pipe(
 			map(responses => {

@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot,RouterStateSnapshot } from '@angular/router';
 import { SessionStorageService } from 'ngx-webstorage';
 import { Observable,forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ApiService,ServiceRequest } from '../services/api.service';
+import { ApiService,ServiceRequest } from 'src/app/core/services/api.service';
 
 @Injectable()
 export class AdminGuard {

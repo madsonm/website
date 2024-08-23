@@ -12,7 +12,7 @@ export class AdminService {
 	eventsFind() {
 		const request = {
 			action: 'POST'
-			,url: '/cgi/bb/admin/eventsFind.cgi'
+			,url: '/cgi/bb/admin/eventFind.cgi'
 			,message: 'Getting Events'
 		} as ServiceRequest;
 
@@ -23,12 +23,14 @@ export class AdminService {
 	eventAdd(obj: any) {
 		const request = {
 			action: 'POST'
-			,url: '/cgi/bb/admin/eventsAdd.cgi'
+			,url: '/cgi/bb/admin/eventAdd.cgi'
 			,body: {...obj}
 			,message: 'Saving Event'
 			,confirm: 'Saved Event'
 		} as ServiceRequest;
 
-		return this.api.call(request).pipe(map(response => (response || {}).result === 'OK'));
+		if (/.*_evicted$/.test(obj.ekey)) request.url='/cgi/bb/admin/evictionAdd.cgi'
+
+		return this.api.call(request).pipe(map(response => (response || {}).result === 'SUCC'));
 	}
 }

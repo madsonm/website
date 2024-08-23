@@ -15,7 +15,7 @@ export class ConfirmInterceptor implements HttpInterceptor {
 	// Config driven display of snackbar on successful response
 	private confirm(message: string,response: any) {
 		if (message && response) {
-			if (response.result === 'OK') {
+			if (response.result === 'SUCC') {
 				this.show(message);
 			} else {
 				this.show(`Error ${message}`);
