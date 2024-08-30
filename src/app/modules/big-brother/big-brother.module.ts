@@ -13,6 +13,7 @@ import { HouseguestsComponent } from './houseguests/houseguests.component';
 import { LogoComponent } from './logo/logo.component';
 import { PlayerComponent } from './player/player.component';
 import { ScoresComponent } from './scores/scores.component';
+import { ScoringComponent } from './scoring/scoring.component';
 
 
 
@@ -27,6 +28,7 @@ import { ScoresComponent } from './scores/scores.component';
 		,PlayerComponent
 		,HistoryComponent
 		,LogoComponent
+		,ScoringComponent
 	]
 	,imports: [
 		CommonModule

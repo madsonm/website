@@ -10,6 +10,7 @@ import { forkJoin } from 'rxjs';
 })
 export class ScoresComponent implements OnInit {
 	@SessionStorage() admin: boolean;
+	@SessionStorage() houseguests: any[];
 
 	scores = [] as any;
 	scoring = [] as any;
@@ -43,11 +44,12 @@ export class ScoresComponent implements OnInit {
 	}
 
 	getClass(obj: any): string {
+		const hg = this.houseguests.filter(rec => rec.hkey===obj.hkey)[0];
 		return `
-			${!!obj.evicted ? ' evicted' : ''}
-			${!!obj.hoh ? 'hoh' : ''}
-			${!!obj.pov ? 'pov' : ''}
-			${!!obj.nominated ? 'nominated' : ''}
+			${!!hg.evicted ? ' evicted' : ''}
+			${!!hg.hoh ? 'hoh' : ''}
+			${!!hg.pov ? 'pov' : ''}
+			${!!hg.nominated ? 'nominated' : ''}
 		`.replace(/\s+/,' ').trim();
 	}
 }

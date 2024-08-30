@@ -12,7 +12,7 @@ const routes: Routes = [
 	{path: 'bb',component: BigBrotherComponent,canActivate:[BigBrotherGuard] }
 	,{path: 'bb/scores',component: ScoresComponent,canActivate:[BigBrotherGuard] }
 	,{path: 'bb/houseguests',component: HouseguestsComponent,canActivate:[BigBrotherGuard] }
-	,{path: 'bb/player/:pkey',component: PlayerComponent,canActivate:[BigBrotherGuard] }
+	,{path: 'bb/something/player/:pkey',component: PlayerComponent,canActivate:[BigBrotherGuard] }
 	,{path: 'bb/something/something',component: EventsComponent,canActivate:[BigBrotherGuard] }
 	,{ path: 'bb/**',redirectTo: 'bb' }
 ];

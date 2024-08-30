@@ -35,11 +35,10 @@ export class BigBrotherService {
 	}
 
 
-	player(pkey: string): Observable<any> {
+	player(): Observable<any> {
 		const request = {
 			action: 'POST'
 			,url: '/cgi/bb/players.cgi'
-			,body: {pkey:pkey}
 			,message: 'Getting Player'
 		} as ServiceRequest;
 

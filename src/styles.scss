@@ -6,6 +6,7 @@ html,
 body {
 	height: 100%;
 }
+
 body {
 	margin: 0;
 	font-family: "Roboto", sans-serif;
@@ -17,13 +18,19 @@ body {
 .muted {
 	color: #999 !important;
 }
+
 .center {
 	text-align: center;
 }
+
+.right {
+	text-align: right;
+}
+
 .split {
-	display:flex;
+	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: 1em;
-	width:100%;
+	width: 100%;
 }
