@@ -49,7 +49,7 @@ export class ScoresComponent implements OnInit {
 			${!!hg.evicted ? ' evicted' : ''}
 			${!!hg.hoh ? 'hoh' : ''}
 			${!!hg.pov ? 'pov' : ''}
-			${!!hg.nominated && !!hg.saved ? 'nominated' : ''}
+			${!!hg.nominated && !hg.saved ? 'nominated' : ''}
 		`.replace(/\s+/,' ').trim();
 	}
 }
