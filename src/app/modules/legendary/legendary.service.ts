@@ -19,12 +19,12 @@ export class LegendaryService {
 		{
 			keyword: 'Abomination'
 			,source: ['Captain America 75th Anniversary','Realm of Kings']
-			,represents: 'This keyword ability is used by Villains that are horrific, unpredictable and even monsterous.'
-			,definition: 'It means "<strong>This Villain gets +[ATTACK] equal to the printed [ATTACK] of the Hero in the HQ space under this Villain\'s city space</strong>."'
+			,represents: 'This keyword ability is used by Villains that are horrific, unpredictable and even monstrous.'
+			,definition: 'It means "<strong>This Villain gets + [ATTACK] equal to the printed [ATTACK] of the Hero in the HQ space under this Villain\'s city space</strong>."'
 			,clarification: [
 				'An Abomination Villain\'s [ATTACK] can go up and down as the Villain moves through the city.'
 				,'You can recruit a Hero under an Abomination to try to reduce its [ATTACK]... but you might also increase it!'
-				,'Likewise, "Ultimate Abomination" means "This Mastermind gets +[ATTACK] equal to the total printed [ATTACK] of all the Heroes in the HQ."'
+				,'Likewise", Ultimate Abomination" means "This Mastermind gets + [ATTACK] equal to the total printed [ATTACK] of all the Heroes in the HQ."'
 				,'The Hero Gorgon has abilities like "<strong>Sewers Abomination</strong>." It gives [ATTACK] equal to the printed [ATTACK] of the Hero in the HQ space under the Sewers.'
 				,'The highly-evolved Mastermind Maximus and Gorgon also use "<strong>Highest Abomination</strong>." This gives [ATTACK] equal to the highest printed [ATTACK] of any single card in the HQ.  So if the five Heroes in the HQ have printed [ATTACK] of 2, 4, 3+, 0+, and no printed [ATTACK], then Highest Abomination would give 4 [ATTACK].'
 				,'"<strong>Double Abomination</strong>" doubles the [ATTACK] bonus. Some "Divided Cards" from sets like Legendary®: Civil War have two printed [ATTACK] numbers, one on each side. If you need to know that card\'s "printed [ATTACK]", and the card is not currently being played, add both those [ATTACK] numbers together. This applies to Abomination and Berserk (from Legendary®: X-Men).'
@@ -63,14 +63,29 @@ export class LegendaryService {
 		}
 		,{
 			keyword: 'Berserk'
-			,source: ['X-Men']
-			,represents: 'This Keyword represents some X-Men going into a berserker rage of unpredictable violence.'
+			,source: ['X-Men','Weapon X']
+			,represents: 'This Keyword represents some heroes going into a berserker rage of unpredictable violence.'
 			,definition: '"Berserk" means "<strong>Discard the top card of your deck. You get + [ATTACK] equal to the discarded card\'s printed [ATTACK] </strong>."'
 			,clarification: [
 				'If the discarded card gives "2+ [ATTACK]" or "2* [ATTACK]", you just count 2.'
 				,'Some cards say "Berserk, Berserk, Berserk" so you discard three cards in a row.'
 				,'Some cards say things like "<strong>Berserk. X-Gene [TECH]</strong>: You get +1 [ATTACK]."  You do the card abilities in order, so Berserk might discard a [TECH] card from your deck, letting you use your X-Gene ability.'
 				,'Berserk gives no benefit from discarding printed [RECRUIT] or [PIERCING ENERGY] values.'
+			]
+		}
+		,{
+			keyword: 'Berserk Enemies'
+			,source: ['Weapon X']
+			,represents: 'This Keyword represents some enemies who, when facing stronger heroes, become even more enraged and violent.'
+			,definition: '<strong>When you try to fight an Enemy that has Berserk, discard the top card of your deck.  That Enemy gets + [ATTACK] equal to the discarded card\'s printed [ATTACK]</strong>.'
+			,clarification: [
+				'If the discarded card gives "2+ [ATTACK]" or "2* [ATTACK]", you just count 2.'
+				,'If any Enemy says Berserk multiple times, do the Berserk effect that many times, giving all of that [ATTACK].'
+				,'If you have at least as many [ATTACK] points as the Enemy\'s improved [ATTACK], spend that many [ATTACK] and defeat the Enemy as normal.'
+				,'If you don\'t have enough [ATTACK] points, then you don\'t defeat this Enemy, you lose all your [ATTACK] points, and you can\'t fight anymore this turn.  You can still play cards and recruit.  Don\'t use that Enemy\'s "Fight" effect.  (Also don\'t use any "When you fight" or "When you defeat" effects.  You can\'t use the "if you don\'t fight..." Healing ability on normal Wounds.)'
+				,'You can\'t try to fight an Enemy unless you have enough points to match its printed [ATTACK].'
+				,'Once you start to fight and Enemy, you can\'t play any more cards until after the fight is complete.  Remember to generate all the [ATTACK] you can before you fight them!'
+				,'Look for ways to set up the top cards of your deck to have low or no [ATTACK] before you fight a Berserk Enemy.'
 			]
 		}
 		,{
@@ -99,10 +114,14 @@ export class LegendaryService {
 				'If you fight a Villain with <strong>Burrow</strong> twice in a turn, you\'ll do that Villain\'s "<strong>Fight</strong>" effects twice.'
 				,'Cards that do something "when you defeat" a Villain still work if the Villain burrows to the Streets.'
 				,'When a Villain burrows it does not re-trigger any Ambush effects.'
-				,'This means that in order to stop a Villain with <strong>Burrow</strong> permanently, you have to:'
-				,'Fight it while it\'s in the Streets, or'
-				,'Fight it while another Villain occupies the Streets, or'
-				,'Fight it once to drive it back to the Streets then fight it again in the Streets to finish it.'
+				,{ text: 'This means that in order to stop a Villain with <strong>Burrow</strong> permanently, you have to:' }
+				,{
+					list: [
+						'• Fight it while it\'s in the Streets, or'
+						,'• Fight it while another Villain occupies the Streets, or'
+						,'• Fight it once to drive it back to the Streets then fight it again in the Streets to finish it.'
+					]
+				}
 			]
 		}
 		,{
@@ -113,7 +132,7 @@ export class LegendaryService {
 			keyword: 'Celestial Boons'
 			,source: ['Into the Cosmos']
 			,represents: 'The Celestials are millions of years old and immeasurably powerful. They cannot be truly defeated by mere mortals. However, if you manage to fight a Celestial, it is impressed with your efforts and grants you a Celestial Boon.'
-			,definition: '<strong>This is a permanent bonus that helps you for the rest of the game</strong>'
+			,definition: '<strong>This is a permanent bonus that helps you for the rest of the game</strong>.'
 			,clarification: ['As long as the Celestial is in your Victory Pile. You can use multiple Celestial Boons, even multiple copies of the same one.']
 		}
 		,{
@@ -135,14 +154,14 @@ export class LegendaryService {
 				,{
 					list: [
 						'Essentially you play the card itself, and then you play a bonus copy of that card.'
-						,'The bonus copy card\'s effects can be triggered by the initial card'
+						,'The bonus copy card\'s effects can be triggered by the initial card.'
 					]
 				}
 				,{ text: '<strong>Example</strong>: Say your first play is using Cheering Crowds to play a [TECH] card twice. Then, you play another card that says "[TECH]: You get +1 [TECH] for each other [TECH] Hero you played this turn."  That ability would count both plays of your Cheering Crowds card, giving you +2 [ATTACK] total.' }
 				,{
 					list: [
-						'Playing the bonus copy of that card acts as an entirely separate card'
-						,]
+						'Playing the bonus copy of that card acts as an entirely separate card.'
+					]
 				}
 				,{ text: 'When playing out a big turn, some people like to put the Bystander they\'re returning temporarily on the Cheering Crowds card to remind themselves that they played it twice.' }
 			]
@@ -150,13 +169,13 @@ export class LegendaryService {
 		,{
 			keyword: 'Chivalrous Duel'
 			,source: ['Ant-Man']
-			,represents: 'This keyword represents how Morgan le Fay and the knights of her "Queen\'s Vengeance" hail from a realm of honorable single combat. You can\'t gang up on an enemy in a Chivalrous Duel - you have to pick just one Hero Name to duel the enemy.'
-			,definition: 'To fight an enemy with "Chivalrous Duel", you can only use [ATTACK] from a single Hero Name.'
+			,represents: 'This keyword represents how Morgan le Fay and the knights of her "Queen\'s Vengeance" hail from a realm of honorable single combat. You can\'t gang up on an Enemy in a Chivalrous Duel - you have to pick just one Hero Name to duel the Enemy.'
+			,definition: 'To fight an Enemy with "Chivalrous Duel", you can only use [ATTACK] from a single Hero Name.'
 			,clarification: [
 				,{
 					list: [
 						'<strong>Example</strong>: To fight a 3 [ATTACK] Villain with Chivalrous Duel, you can spend 3 [ATTACK] from two different Black Knight hero cards. But you can\'t combine 2 [ATTACK] from Black Knight cards and 1 [ATTACK] from a Wasp card.'
-						,'If a Hero (like "S.H.I.E.L.D. Trooper") doesn\'t have a Hero Name listed, then its Hero Name is the card name.  So you can play three S.H.I.E.L.D. Troopers then fight a 3 [ATTACK] Villain with Chivalrous Duel.  But you can\'t spend 2 [ATTACK] from Black Knight cards and 1 [ATTACK] from a S.H.I.E.L.D. Trooper to fight an enemy with Chivalrous Duel.'
+						,'If a Hero (like "S.H.I.E.L.D. Trooper") doesn\'t have a Hero Name listed, then its Hero Name is the card name.  So you can play three S.H.I.E.L.D. Troopers then fight a 3 [ATTACK] Villain with Chivalrous Duel.  But you can\'t spend 2 [ATTACK] from Black Knight cards and 1 [ATTACK] from a S.H.I.E.L.D. Trooper to fight an Enemy with Chivalrous Duel.'
 						,'You can\'t use [ATTACK] you get from anything that\'s not a Hero card, including Microscopic Size-Changing Villains, Mastermind Tactics, Shard tokens from other sets, etc.'
 						,'You can use [ATTACK] from Hero Artifacts as long as they share the same Hero Name, since those are Hero cards.'
 					]
@@ -200,7 +219,7 @@ export class LegendaryService {
 			,represents: 'Asgard\'s fiercest enemies lead legions of monsters to conquer all of the Nine Realms, including Midgard (Earth) and Asgard itself.'
 			,definition: '"Location Conqueror N" means this Villain gets <strong>+N [ATTACK]</strong> if any Villain occupies the specified location.'
 			,clarification: [
-				'For example, "<strong>Bridge Conqueror 3</strong>." means "This Villain gets +3 [ATTACK] while any Villain is on the Bridge."'
+				'For example", <strong>Bridge Conqueror 3</strong>." means "This Villain gets +3 [ATTACK] while any Villain is on the Bridge."'
 				,'This Villain gets the bonus while it itself is on the Bridge or while another Villain is on the Bridge.'
 				,'Some Hero cards also have abilities like "<strong>Rooftops Conqueror 1</strong>", which likewise means "You get +1 [ATTACK], usable on any city space or Mastermind, if any Villain is on the Rooftops."'
 				,'Various Villains and the Hela Mastermind have different Conqueror abilities, with different bonus numbers and referring to different city spaces.'
@@ -218,7 +237,7 @@ export class LegendaryService {
 				,'You can only Coordinate one card to each player on their turn. However, multiple players can each Coordinate one card to the player whose turn it is, in order to give that player a huge advantage.'
 				,'If you are playing a solo game, once per turn, you may discard a card with Coordinate to draw a card - similar to the <strong>Dodge</strong> keyword.'
 				,'Coordinate is printed on cards in red text to make it easier to notice during other players\' turns.'
-				,'Unlkine in Legendary®: Encounters, When you offer to Coordinate a card to another player, that player can decline. If so, you don\'t discard that card and that player doesn\'t play a copy of it.'
+				,'Unlike in Legendary®: Encounters, When you offer to Coordinate a card to another player, that player can decline. If so, you don\'t discard that card and that player doesn\'t play a copy of it.'
 				,'If you are playing with the Final Showdown, you can\'t Coordinate during that Showdown.'
 			]
 		}
@@ -226,7 +245,7 @@ export class LegendaryService {
 			keyword: 'Cosmic Threat'
 			,source: ['Fantastic 4','Into the Cosmos']
 			,represents: 'Some cosmic Villains use the Cosmic Threat keyword, returning all the way from Legendary®: Fantastic Four in 2013. Villains with this keyword have incredibly high Attack values with a special vulnerability.'
-			,definition: 'If an enemy has Cosmic Threat [RANGED], that means: "<strong>Once per turn, for each [RANGED] card you reveal, this Enemy gets -3 [ATTACK] this turn."'
+			,definition: 'If an Enemy has Cosmic Threat [RANGED], that means: "<strong>Once per turn, for each [RANGED] card you reveal, this Enemy gets -3 [ATTACK] this turn."'
 			,clarification: [
 				'The Shaper of Worlds has "Cosmic Threat [RANGED]" and 10* [ATTACK]. If you reveal two [RANGED] cards, he gets -6 [ATTACK] this turn, so he has 4 [ATTACK] left. If you reveal four [RANGED] cards, he gets -12 [ATTACK] this turn, so he has 0 [ATTACK], and you can fight him without spending any [ATTACK].'
 				,'The Celestials say things like "Cosmic Threat [STRENGTH] or [INSTINCT]" You can choose to use either [STRENGTH] or [INSTINCT] cards for its Cosmic Threat in a single turn, <strong>but you can\'t use both to reduce its [ATTACK]</strong>.'
@@ -240,12 +259,12 @@ export class LegendaryService {
 			,definition: '"Cross-Dimensional TERM Rampage" means "Each player will gain a wound if they do not reveal one of their Heroes or a card in their Victory Pile that contain the TERM in their Hero or Villain name or card name."'
 			,clarification: [
 				'"Cross-Dimensional Hulk Rampage" means "<strong>Each player reveals one of their Hulk Heroes or a Hulk card in their Victory Pile or gains a Wound</strong>."'
-				,'Likewise, "Cross-Dimensional Wolverine Rampage" counts any card with "Wolverine", "Weapon", or "Old Man Logan."'
+				,'Likewise", Cross-Dimensional Wolverine Rampage" counts any card with "Wolverine"", Weapon", or "Old Man Logan."'
 				,'This counts any card that includes "Hulk" in its card name or Hero name, plus alternate Hulks "Maestro" and "Nul, Breaker of Worlds."'
 				,'You can reveal any card that includes the word "Hulk" in its card name, Hero name, Villain Group name, or Tactics for Hulk Masterminds. This includes any Red Hulk, She-Hulk, Red She-Hulk, Skaar, Son of Hulk, Joe Fixit Grey Hulk, Hulkling, Hulk Gang, Cosmic Hulk Robot, Hulkbuster, Enchain the Hulk, and so on.'
 				,'Some Heroes can transform into Hulks, like Bruce Banner and Amadeus Cho. A puny "Bruce Banner" card doesn\'t say "Hulk" on it, so it can\'t stop a Hulk Rampage. But revealing the transformed Bruce Banner card named "Savage Hulk Unleashed" works.'
 				,'When a Cross-Dimensional Hulk Rampage happens, you can choose to gain the Wound, even if you have a Hulk that you already played or could otherwise reveal. You might want the Wound if you have Wounded Fury cards.'
-				,'There are also Cross-Dimensional "Void" Rampages, "Party", "Zombie", "Demon", etc.'
+				,'There are also Cross-Dimensional "Void" Rampages", Party"", Zombie"", Demon", etc.'
 			]
 		}
 		,{
@@ -267,7 +286,7 @@ export class LegendaryService {
 			keyword: 'Dark Memories'
 			,source: ['Revelations','Black Widow']
 			,definition: [
-				'On a Hero card, "Dark Memories" means "You get +1 [ATTACK] for each Hero Class among cards in your discard pile."'
+				'On a Hero card", Dark Memories" means "You get +1 [ATTACK] for each Hero Class among cards in your discard pile."'
 				,'Likewise, on a Villain it means "This gets +1 [ATTACK] for each Hero Class among cards in your discard pile."'
 			]
 			,represents: 'This new keyword represents heroes with a dark past who are now spending the rest of their lives working to redeem themselves, drawing determination from their memories of the past.  Meanwhile, their enemies seek to dredge up these past misdeeds and use them against the Heroes.'
@@ -283,7 +302,7 @@ export class LegendaryService {
 		,{
 			keyword: 'Demolish'
 			,source: ['Fear Itself','Champions']
-			,represents: 'This keyword represents the Heroes being devestated by the enchanted weapons of the Wrecking Crew and enormous Monsters Unleashed.'
+			,represents: 'This keyword represents the Heroes being devastated by the enchanted weapons of the Wrecking Crew and enormous Monsters Unleashed.'
 			,definition: '"<strong>Demolish each player</strong>" means "<strong>Reveal the top card of the Hero Deck, note its cost, and put it on the bottom of the Hero Deck. Each player reveals their hand and discards a card with that cost</strong>."'
 			,clarification: [
 				'Reveal only one card from the Hero Deck - don\'t reveal a different card from the Hero Deck for each player.'
@@ -316,9 +335,9 @@ export class LegendaryService {
 			keyword: 'Dominate'
 			,source: ['X-Men']
 			,represents: 'This keyword represents Villains using telepathy, sorcery, or illusions to twist Heroes\' minds to evil.'
-			,definition: 'Some Villains and Masterminds say they "Dominate" Hero cards from various places. This means "<strong>Put those Heroes under this enemy. This enemy gets +1 [ATTACK] for each Hero it\'s Dominating</strong>."'
+			,definition: 'Some Villains and Masterminds say they "Dominate" Hero cards from various places. This means "<strong>Put those Heroes under this Enemy. This Enemy gets +1 [ATTACK] for each Hero it\'s Dominating</strong>."'
 			,clarification: [
-				'When you fight that enemy, put one of those Dominated Heroes into each player\'s discard pile. You choose which player gets which Hero, including yourself. There might not be enough for every player to get one. KO any excess Dominated Heroes.'
+				'When you fight that Enemy, put one of those Dominated Heroes into each player\'s discard pile. You choose which player gets which Hero, including yourself. There might not be enough for every player to get one. KO any excess Dominated Heroes.'
 				,'If a Villain escapes, any Heroes Dominated by that Villain go to the Escape Pile too.'
 			]
 		}
@@ -344,8 +363,8 @@ export class LegendaryService {
 			,definition: 'Some Heroes say things like "You get <strong>Empowered</strong> by [STRENGTH]."  This means "<strong>You get +1 [ATTACK] for each [STRENGTH] card in the HQ</strong>."'
 			,clarification: [
 				'Likewise, some Villains and Masterminds say things like "<strong>Empowered by [TECH]</strong>." This means "<strong>This gets +1 [ATTACK] for each [TECH] card in the HQ</strong>."'
-				,'As cards enter and leave the HQ, an Empowered card can get stronger or weaker. You only check the [ATTACK] bonus at the moment you play your Empowered Hero or at the moment you fight the Empowered enemy.'
-				,'One clever move is to recruit a Hero from the HQ at the right time, changing the colors in the HQ to weaken an Empowered enemy or try to strengthen an Empowered Hero in your hand.'
+				,'As cards enter and leave the HQ, an Empowered card can get stronger or weaker. You only check the [ATTACK] bonus at the moment you play your Empowered Hero or at the moment you fight the Empowered Enemy.'
+				,'One clever move is to recruit a Hero from the HQ at the right time, changing the colors in the HQ to weaken an Empowered Enemy or try to strengthen an Empowered Hero in your hand.'
 				,'Some cards are even "<strong>Double Empowered</strong>" or "<strong>Triple Empowered</strong>" meaning that they get +2 [ATTACK] or +3 [ATTACK] for each appropriate card in the HQ.'
 				,'Multi-class or divided cards from other sets counts if either half is the correct color. For example, an "Empowered by [RANGED] and [STRENGTH]" ability can get +1 [ATTACK] from a "[CONVERT][RANGED]" card or from a "[INSTINCT][STRENGTH]" card. However, a "[RANGED][STRENGTH]" card in the HQ would only give +1 [ATTACK], not +2 [ATTACK].'
 				,'Abilities that let you put cards from the HQ on the bottom of the Hero Deck are especially useful at setting up Empowered Heroes or Empowered Villains. They are also great at giving you more Hero Ambushes!'
@@ -361,16 +380,25 @@ export class LegendaryService {
 				'Say you\'ve played three Heroes with Excessive Violence abilities this turn. If you spend 8 [ATTACK] to fight a Villain or Mastermind that has 7 [ATTACK], then you\'ll get to use all three Excessive Violence abilities!'
 				,'If you don\'t fight anything this turn, or if you don\'t spend an extra 1 [ATTACK] on someone, then you won\'t be able to use Excessive Violence.'
 				,'Since you can only fight "using Excessive Violence" once per turn, you can only use a card\'s Excessive Violence ability once per turn.'
-				,'(It\'s OK to play two cards with the same card name, fight an enemy "using Excessive Violence" and use both of those cards\' Excessive Violence abilities.)'
+				,'(It\'s OK to play two cards with the same card name, fight an Enemy "using Excessive Violence" and use both of those cards\' Excessive Violence abilities.)'
 				,'If you fight using Excessive Violence and then draw or play more cards with Excessive Violence abilities later in the turn, it will be too late to use those abilities.'
 				,'Gravity Mines says "Triggered Artifact - Whenever you use Excessive Violence, draw a card."  You can use this even if this artifact is the only Excessive Violence card you have or combine it with other Excessive Violence cards.'
 				,'In contrast to Excessive Violence, the empath Mantis and the adorable Baby Groot are often way kinder than necessary.  Their "Excessive Kindness" abilities work just like Excessive Violence, except that you trigger them by spending 1 [RECRUIT] more than you need when recruiting a Hero.'
 			]
 		}
 		,{
+			keyword: 'Fail (Berserk Enemies)'
+			,source: ['Weapon X']
+			,definition: 'Some Berserk Enemies say "Fail: You gain a Wound".'
+			,clarification: [
+				'Do the "Fail" effect if you try to fight that Enemy but the Berserk [ATTACK] bonus causes you to fail.'
+				,'You can\'t try to fight an Enemy unless you have enough points to match its printed [ATTACK].'
+			]
+		}
+		,{
 			keyword: 'Fateful Resurrection'
 			,source: ['Secret Wars Vol. 2']
-			,definition: 'On a Villain card, "Fight: Fateful Ressurection" means "Reveal the top card of the Villain Deck. If it\'s a Scheme Twist or Master Strike, this Villain reenters the city."'
+			,definition: 'On a Villain card", Fight: Fateful Resurrection" means "Reveal the top card of the Villain Deck. If it\'s a Scheme Twist or Master Strike, this Villain reenters the city."'
 			,clarification: [
 				'If a Villain resurrects this way, you still rescue its Bystanders and do its other Fight effects.'
 				,'The Villain pushes into the Sewers and does any Ambush abilities as normal.'
@@ -384,7 +412,7 @@ export class LegendaryService {
 			,definition: '"<strong>Feast</strong>" means "<strong>Fight: KO the top card of your deck</strong>.'
 			,clarification: [
 				'This Keyword states that when you fight a Villain or Mastermind with this ability you treat it as a fight effect.'
-				,'Likewise, "<strong>Feast on each player</strong>" means "<strong>KO the top card of each player\'s deck</strong>."'
+				,'Likewise", <strong>Feast on each player</strong>" means "<strong>KO the top card of each player\'s deck</strong>."'
 				,'Carnage\'s Master Strike starts with "Feast on each player."  That means each player does the "<strong>Feast</strong>" effect. Then Carnage\'s Master Strike causes Wounds when he feasts on certain cards.'
 				,'Note that Carnage\'s Master Strike is the only effect that feasts on every player. The "Maximum Carnage" Villains and Carnage\'s Mastermind Tactics each feast on only one player.'
 				,'While Carnage\'s Master Strike causes Wounds, the Feast abilities on his Mastermind Tactics and most of his Villains don\'t cause Wounds.'
@@ -395,7 +423,7 @@ export class LegendaryService {
 			,source: ['Fantastic 4']
 			,definition: 'You can pay the cost on the left side of the arrow to get the effect on the right side of the arrow. You can use that "Focus" ability as many times as you want for the rest of the turn.'
 			,clarification: [
-				'This keyword lets you transform your Recruit Points into powerful, flexible effects. It looks like this:'
+				'This keyword lets you transform your Recruit Points into powerful, flexible effects.'
 				,'For example, say you play a card that says: "<strong>Focus 2 [RECRUIT]:</strong> Draw a card."  For the rest of your turn, you can use 2 Recruit Points to draw a card, as many times as you want, as long as you have the Recruit points available. You can even play more Heroes, recruit, fight, then use the Focus ability more.'
 				,'<strong>Note</strong>: You can use <strong>Focus</strong> abilities and still use the "Healing" ability on Wounds.'
 			]
@@ -419,7 +447,7 @@ export class LegendaryService {
 		}
 		,{
 			keyword: 'Hidden Witnesses'
-			,source: ['Nior']
+			,source: ['Noir']
 			,represents: 'In a world of Noir, conspiracies are hard to unravel, betrayal is commonplace, and it\'s hard to determine who the real Villains are.  Villains and Masterminds hide behind layers of informants, victims, and stooges. To find these Villains, you must track down and interview Hidden Witnesses who know their locations.'
 			,definition: 'Hidden Witnesses are Bystanders placed face-down on Villains or Masterminds.  You can\'t fight a Villain while it has a Hidden Witness.'
 			,clarification: [
@@ -451,7 +479,7 @@ export class LegendaryService {
 			,represents: 'Some Villain Groups try to rise through the ranks of the Hydra organization, achieving higher Hydra Levels and ever-greater power. To do this, they help Hydra operatives achieve their missions and escape the city unharmed. They also subvert double agents to infiltrate S.H.I.E.L.D., then escape with key intel.'
 			,definition: 'The Hydra Level is the number of S.H.I.E.L.D. and/or HYDRA cards in the Escape Pile.'
 			,clarification: [
-				'Some Villains and Masterminds say things like "Growing Man gets +[ATTACK] equal to the Hydra Level."'
+				'Some Villains and Masterminds say things like "Growing Man gets + [ATTACK] equal to the Hydra Level."'
 				,'Like S.H.I.E.L.D. Level, this includes any card with the <strong>[S.H.I.E.L.D.]</strong> or [HYDRA] team icons, as well as any card with "S.H.I.E.L.D."  or "Hydra" in its card name, Villain Group name, or Mastermind name.'
 				,'Some abilities put <strong>[S.H.I.E.L.D.]</strong> cards directly from S.H.I.E.L.D. Officer Stack into the Escape Pile to increase Hydra Level. This is not an "escape" unless it\'s a Villain escaping from the city, so it won\'t KO a Hero of cost 6 or less from the HQ.'
 			]
@@ -483,7 +511,7 @@ export class LegendaryService {
 		}
 		,{
 			keyword: 'Investigate'
-			,source: ['Nior','Dimensions']
+			,source: ['Noir','Dimensions']
 			,represents: 'This keyword represents hard-bitten Noir detectives investigating mysteries and searching for evidence and allies.'
 			,definition: 'Some cards say things like "<strong>Investigate</strong> for a [TECH] card."  That means "<strong>Look at the top two cards of your deck. Reveal a [TECH] card from among them and draw it. Put the rest of those cards back on the top and/or bottom of your deck in any order</strong>."'
 			,clarification: [
@@ -540,8 +568,8 @@ export class LegendaryService {
 				'The card is discarded the second time you play it, so you play the card only twice total. You can\'t use Man Out of Time again to play that card a third time.'
 				,'Play your returning Man Out of Time cards after the "Play a Villain Card" part of your turn and before you start playing out of your hand.'
 				,'You "played" a Man Out of Time card on both the first turn you played it and the second turn when you replayed it, so it can help activate your Superpower Abilities on both turns.'
-				,'You can use a Focus ability on a Man Out of Time card throughout the first and second turnes you played the card.'
-				,'If a special ability lets you copy (or play a copy of) a hero card, you can\t use Man Out of Time on the copy.'
+				,'You can use a Focus ability on a Man Out of Time card throughout the first and second turns you played the card.'
+				,'If a special ability lets you copy (or play a copy of) a hero card, you can\'t use Man Out of Time on the copy.'
 				,'Some enemies send your cards Out of Time, setting them aside in the same way.  When you play and discard that card at the start of your next turn, you can\'t use Man Out of Time again.'
 			]
 		}
@@ -561,7 +589,7 @@ export class LegendaryService {
 			,clarification: [
 				'So if you played one [TECH] Hero this turn, this card costs 2 less. If you played two [TECH] Heroes, it costs 4 less. If you played three or more [TECH] Heroes, it costs 6 less.'
 				,'Playing a fourth [TECH] card wouldn\'t reduce this cost any further since there are only three [TECH] icons listed in this particular Microscopic Size-Changing ability.'
-				,'The second twist is that Microscopic Size-Changing can actually <strong>reduce a card\'s Recruit cost to zero or even a negative number!</strong> When you recruit a Microscopic Size-Changing Hero with a negative cost, <strong>you actually gain that many Recruit points!</strong>'
+				,'The second twist is that Microscopic Size-Changing can actually <strong>reduce a card\'s Recruit cost to zero or even a negative number!</strong> When you recruit a Microscopic Size-Changing Hero with a negative cost, <strong>you actually gain that many Recruit points</strong>!'
 				,'Some Villains also have Microscopic Size-Changing. It works the same way, letting you fight that Villain for 2 [ATTACK] less for each card of the correct color you played this turn, counting up to the number of icons shown in the Microscopic Size-Changing ability.'
 				,'Likewise, if you fight a Villain with Microscopic Size-Changing and reduce its [ATTACK] value to a negative number, you actually gain that many [ATTACK] points when you fight it. You don\'t even need to have any [ATTACK] points before you fight them.'
 				,'For example, say you play five [CONVERT] Heroes, then fight a Villain with 3 [ATTACK] and "Microscopic Size-Changing <strong>[CONVERT] [CONVERT] [CONVERT] [CONVERT]</strong>."  The Villain\'s [ATTACK] decreases to -5, and you actually gain 5 [ATTACK] when you fight them! (The 5th [CONVERT] Hero you played didn\'t reduce the [ATTACK], since the Microscopic Size-Changing ability only had 4 icons.)'
@@ -635,12 +663,12 @@ export class LegendaryService {
 		,{
 			keyword: 'Piercing Energy'
 			,source: ['X-Men']
-			,represents: 'This keyword represents X-Men using psychic knives & sonic screams to pierce enemy defenses.'
-			,definition: 'Some Heroes give you a new kind of points called "Piercing Energy", using the [PIERCING ENERGY] icon. <strong>You can fight a Villain or Mastermind by spending [PIERCING ENERGY] points equal to that enemy\'s printed Victory Points ([Victory Points]) value</strong>.'
+			,represents: 'This keyword represents X-Men using psychic knives & sonic screams to pierce Enemy defenses.'
+			,definition: 'Some Heroes give you a new kind of points called "Piercing Energy", using the [PIERCING ENERGY] icon. <strong>You can fight a Villain or Mastermind by spending [PIERCING ENERGY] points equal to that Enemy\'s printed Victory Points ([Victory Points]) value</strong>.'
 			,clarification: [
-				'You ignore that enemy\'s [ATTACK] and any [ATTACK] modifiers.'
-				,'You can also ignore any special conditions for fighting that enemy, automatically rescuing any Human Shields.'
-				,'You can\'t use Piercing Energy against cards that have no printed VP value, like Shadow-X Villains, or Master Strikes that become Villains.'
+				'You ignore that Enemy\'s [ATTACK] and any [ATTACK] modifiers.'
+				,'You can also ignore any special conditions for fighting that Enemy, automatically rescuing any Human Shields.'
+				,'You can\'t use Piercing Energy against cards that have no printed [VICTORY POINTS] value, like Shadow-X Villains, or Master Strikes that become Villains.'
 			]
 		}
 		,{
@@ -660,7 +688,7 @@ export class LegendaryService {
 			,represents: 'This keyword represents Villains getting madder as you defeat their fellow team members.'
 			,definition: 'This Villain gets +1 Attack for each specified Villain type in your Victory Pile.'
 			,clarification: [
-				'For example, "Revenge for Deadpool\'s Friends" means this Villain gets +1 Attack for each "Deadpool\'s Friends\'" Villain in your Victory Pile.'
+				'For example", Revenge for Deadpool\'s Friends" means this Villain gets +1 Attack for each "Deadpool\'s Friends\'" Villain in your Victory Pile.'
 			]
 		}
 		,{
@@ -670,7 +698,7 @@ export class LegendaryService {
 			,definition: 'Each player checks the top card of their Victory Pile. If that card is a Villain with a "Rise of Living Dead" ability, that Villain reenters the city.'
 			,clarification: [
 				'A Villain that reenters the city this way follows the same rules as any other Villain entering the city: First check if a Villain is pushed out to Escape, and resolve any Escape effects. Then do any Ambush abilities for the arriving Villain.'
-				,'However, note that a Villain returning to the city because a "Rise of the Living Dead" ability does NOT itself bring back additional Villains with its own Rise of the Living Dead ability - a single player does NOT do a chain reaction of many Villains returning at once. However, since each player is affected by Rise of the Living Dead, several Villains might still return when Rise of the Living Dead occurs - a maximum of one returning Villain per player. '
+				,'However, note that a Villain returning to the city because a "Rise of the Living Dead" ability does NOT itself bring back additional Villains with its own Rise of the Living Dead ability - a single player does NOT do a chain reaction of many Villains returning at once. However, since each player is affected by Rise of the Living Dead, several Villains might still return when Rise of the Living Dead occurs - a maximum of one returning Villain per player.'
 				,'When Rise of the Living Dead happens, it affects each player in order. The player whose turn it is resolves it first, including any potential Escapes, then any Ambush effects. When all of that is complete, then the next player in clockwise order resolves Rise of the Living Dead in the same way.'
 				,'Mastermind Tactics never return this way.'
 				,'If you put a Villain with Bystanders into your Victory Pile, you choose the order.'
@@ -690,7 +718,7 @@ export class LegendaryService {
 			keyword: 'Shards'
 			,source: ['Guardians of the Galaxy','Into the Cosmos']
 			,represents: '"Shard" tokens represent cosmic energy. These tokens can be gained by players, Villains, and Masterminds. Shards first appeared in Legendary®: Guardians of the Galaxy in 2014.'
-			,definition: 'Shards represent +1 [ATTACK] each for the Player or Villain who posesses it.'
+			,definition: 'Shards represent +1 [ATTACK] each for the Player or Villain who possesses it.'
 			,clarification: [
 				'Players: When you gain a Shard, put it in front of you. You can spend a Shard to get +1 [ATTACK] (returning the Shard to the supply).'
 				,'You can use the Shard immediately, or you can keep it to use on any future turn. You can spend as many Shards as you wish in a single turn.'
@@ -728,7 +756,7 @@ export class LegendaryService {
 			keyword: 'Sidekicks'
 			,source: ['Secret Wars Vol. 1']
 			,represents: 'Secret Wars adds a new Sidekick Stack to the game.'
-			,definition: '<strong>Once per turn</strong>, a player can pay 2[RECRUIT] to recruit a Sidekick from the top of the Sidekick Stack.'
+			,definition: '<strong>Once per turn</strong>, a player can pay 2 [RECRUIT] to recruit a Sidekick from the top of the Sidekick Stack.'
 			,clarification: [
 				'When you set up, shuffle them <strong>face down</strong> into a Sidekick Stack.'
 				,'When you play and Sidekick, return it to the bottom of the Sidekick Stack.'
@@ -741,9 +769,9 @@ export class LegendaryService {
 			keyword: 'Size-Changing'
 			,source: ['Civil War','Champions','Ant-Man','Marvel Studios Ant-Man and the Wasp']
 			,represents: 'This keyword represents Heroes and Villains using superpowers to shrink, grow, or massively change their size. It\'s also used by characters that can change the size of a weapon, technology, or energy.'
-			,definition: 'Some Hero cards say, "<strong>Size-Changing:[CONVERT]</strong>."  This means "You can recruit this card for <strong>2 [RECRUIT] less</strong> if you played a [CONVERT] card this turn."'
+			,definition: 'Some Hero cards say", <strong>Size-Changing:[CONVERT]</strong>."  This means "You can recruit this card for <strong>2 [RECRUIT] less</strong> if you played a [CONVERT] card this turn."'
 			,clarification: [
-				'Likewise, some Villain cards say, "<strong>Size-Changing:[TECH]</strong>."  This means "You can fight this Villain for <strong>2 [ATTACK] less</strong> if you played a [TECH] card this turn."'
+				'Likewise, some Villain cards say", <strong>Size-Changing:[TECH]</strong>."  This means "You can fight this Villain for <strong>2 [ATTACK] less</strong> if you played a [TECH] card this turn."'
 				,'Some Divided Cards say "<strong>Size-Changing:[TECH]</strong>"on one side and "<strong>Size-Changing:[STRENGTH]</strong>" on the other side. You can recruit either side of the card with its own Size-Changing discount, but you can\'t get both discounts at once.'
 				,'Some Heroes and Villains say things like "<strong>Size-Changing: [STRENGTH], [CONVERT]</strong>" If you played any [STRENGTH] Heroes this turn, the cost is 2 less. If you played any [CONVERT] Heroes this turn, the cost is 2 less. If you played both a [STRENGTH] Hero and a [CONVERT] Hero this turn, then the cost is 4 less.'
 				,'Fin Fang Foom and one of his Monsters Unleashed even say "<strong>Size-Changing: [STRENGTH], [INSTINCT], [CONVERT], [TECH], [RANGED]</strong>." You can pay 2 [ATTACK] less to fight them for each of these Hero Classes you played this turn.'
@@ -767,21 +795,21 @@ export class LegendaryService {
 		,{
 			keyword: 'Grievous Wounds'
 			,source: ['Civil War']
-			,represents: 'Civil War comes with 15 new "Grievous Wonds" that are more difficult to heal.  Shuffle them all into the Wound Stack face down, so you have 45 total Wounds.'
+			,represents: 'Civil War comes with 15 new "Grievous Wounds" that are more difficult to heal.  Shuffle them all into the Wound Stack face down, so you have 45 total Wounds.'
 			,definition: 'Unlike standard Wounds, Grievous Wounds have different individual <strong>Healing</strong> requirements.'
 			,clarification: [
 				'Instead of normal Wound text, a Grievous Wound says something like "<strong>Healing</strong>: You mey spend 5 [RECRUIT].  If you do, KO this Wound."'
 				,'Using these Healing abilities doesn\'t prevent you from recruiting or fighting that turn.'
 				,'You can only use these Healing abilities during your turn.'
 				,'Grievous Wounds still count as "Wounds" for all card effects.'
-				,'If you have a normal Wound, you can use its normal "KO all your wounds" Healing ability to KO your Grievous Wounds too.  But if you don\'t have a normal Wound in hand, then you can\'t'
+				,'If you have a normal Wound, you can use its normal "KO all your wounds" Healing ability to KO your Grievous Wounds too.  But if you don\'t have a normal Wound in hand, then you can\'t.'
 			]
 		}
 		,{
 			keyword: 'Special Sidekicks: Pet Avengers'
 			,source: ['Civil War']
 			,represents: 'Pet Avengers are super-powered "Special Sidekicks."'
-			,definition: '<strong>Once per turn</strong>, a player can pay 2[RECRUIT] to recruit a Sidekick from the top of the Sidekick Stack.'
+			,definition: '<strong>Once per turn</strong>, a player can pay 2 [RECRUIT] to recruit a Sidekick from the top of the Sidekick Stack.'
 			,clarification: [
 				'When you set up, shuffle them <strong>face down</strong> into a Sidekick Stack.'
 				,'When you play and Sidekick, return it to the bottom of the Sidekick Stack.'
@@ -797,7 +825,7 @@ export class LegendaryService {
 			,clarification: [
 				'Grey S.H.I.E.L.D. Heroes, HYDRA Allies, New Recruits and Sidekicks don\'t have classes, so they don\'t help.'
 				,'You can count all the classes you have among cards you played this turn and cards in your hand.'
-				,'Multiclass cards work especially well with Spectrum.'
+				,'Multi-class cards work especially well with Spectrum.'
 			]
 		}
 		,{
@@ -806,7 +834,7 @@ export class LegendaryService {
 			,represents: 'This keyword represents Villains and Masterminds that get more confident and powerful as the Mastermind smashes Heroes.'
 			,definition: 'It means "<strong>This gets +1 [ATTACK] for each Master Strike in the KO pile and/or stacked next to the Mastermind</strong>."'
 			,clarification: [
-				'A couple of Hero cards also have the Striker ability and give you +[ATTACK] the same way.'
+				'A couple of Hero cards also have the Striker ability and give you + [ATTACK] the same way.'
 				,'A couple of cards say "Double Striker", meaning they get +2 [ATTACK] per Strike, or even "Triple Striker" meaning +3 [ATTACK] per Strike.'
 				,'By default, most Master Strikes go to the KO pile when they occur. However, some Masterminds specifically put their Master Strikes in unusual places. Striker also counts all face-up Master Strike cards in any of these unusual places.'
 			]
@@ -835,7 +863,7 @@ export class LegendaryService {
 				,'Once two Villains are bonded, only fighting can break them up. Other Symbiote Bonds abilities can\'t break up a Combined Villain to attach one of the cards to something else.'
 				,'If a Symbiote Bonds ability puts a new Villain card into the city from the Villain Deck, Escape Pile, Victory Pile, etc., do any Ambush ability on the newly entering card. However, that Ambush ability won\'t be able to break up a Combined Villain or add a third card to it.'
 				,'If a special ability automatically "defeats" a Combined Villain, you still put just one of its cards into your Victory Pile and do that card\'s Fight effect.'
-				,'A combined Villain has the VP of both its cards combined. So you can spend Piercing Energy equal to both cards\' total combined VP to fight the Combined Villain, putting one of its cards into your Victory Pile as normal.'
+				,'A combined Villain has the [VICTORY POINTS] of both its cards combined. So you can spend Piercing Energy equal to both cards\' total combined [VICTORY POINTS] to fight the Combined Villain, putting one of its cards into your Victory Pile as normal.'
 			]
 		}
 		,{
@@ -890,7 +918,7 @@ export class LegendaryService {
 			,represents: 'Enemies that can\'t beat Hulks with raw strength often try to trap them instead. World War Hulk features an additional card type: <strong>Traps</strong>. Each Villain Group in this set has a Trap.'
 			,definition: 'When a Trap is played from the Villain Deck, it gives the current Player a challenge to complete during their current turn to avoid the Trap.'
 			,clarification: [
-				'If you complete the challenge, put the Trap in your Victory Pile and get its VP.'
+				'If you complete the challenge, put the Trap in your Victory Pile and get its [VICTORY POINTS].'
 				,'If you fail to complete the challenge, then at the end of the turn you must suffer the listed consequences! (<em>Do this after you draw your new hand</em>)'
 				,'Traps don\'t push forward Villains in the city.'
 			]
@@ -899,14 +927,14 @@ export class LegendaryService {
 			keyword: 'Undercover'
 			,source: ['S.H.I.E.L.D.','Black Widow','2099']
 			,represents: 'This keyword represents the Black Widows, their contacts or S.H.I.E.L.D. agents going off the grid on special missions to recover valuable intel.'
-			,definition: 'Some cards say things like "You may send a <strong>[S.H.I.E.L.D.]</strong> Hero from your hand Undercover."  This means "<strong><em>Put that Hero into your Victory Pile. It\'s worth 1VP."</em></strong>'
+			,definition: 'Some cards say things like "You may send a <strong>[S.H.I.E.L.D.]</strong> Hero from your hand Undercover."  This means "<strong><em>Put that Hero into your Victory Pile. It\'s worth 1 [VICTORY POINTS]"</em></strong>.'
 			,clarification: [
 				'This helps get your starting S.H.I.E.L.D. Agents and Troopers out of your deck so that you draw more powerful Heroes more often. You can also use it to get rid of other S.H.I.E.L.D. cards like Officers that you might not need later in the game. The main Heroes in this set are all part of the <strong>[S.H.I.E.L.D.]</strong> team too, so you can also send their cards Undercover.'
 				,'If you play a card that sends itself <strong>Undercover</strong>, you still get the [ATTACK], [RECRUIT] and other abilities.'
 				,'For example, if you play a [STRENGTH] card that sends itself <strong>Undercover</strong>, you still played a [STRENGTH] card, so you can still use another card\'s "[STRENGTH]: Draw a card" Superpower ability.  However it\'s no longer on of "your Heroes" or "Heroes you have."'
-				,'<strong>When Recruited: Send This Undercover</strong> mean you get the Hero\'s normal recruit cost, put it in your Victory Pile worth 1VP and refull that HQ space with a card from the Hero Deck.'
+				,'<strong>When Recruited: Send This Undercover</strong> mean you get the Hero\'s normal recruit cost, put it in your Victory Pile worth 1 [VICTORY POINTS] and refill that HQ space with a card from the Hero Deck.'
 				,'Sending <strong>[S.H.I.E.L.D.]</strong> Heroes Undercover is also key to increasing your S.H.I.E.L.D. Level.'
-				,'If you recruit a Hero with multiple effects telling you to put it in different places (like Wall-Crawl, Soaring Flight, "When Recruited: Send this Undercover", etc.), you choose which one applies.'
+				,'If you recruit a Hero with multiple effects telling you to put it in different places (like Wall-Crawl, Soaring Flight", When Recruited: Send this Undercover", etc.), you choose which one applies.'
 			]
 		}
 		,{
@@ -929,13 +957,13 @@ export class LegendaryService {
 				'Villainous Weapons are not Villains.'
 				,'When a Villainous Weapon is played from the Villain Deck, <strong>the Weapon is captured by the Villain in the city that\'s closest to the Villain Deck. <u>If there are no Villains in the city, then KO the Weapon instead</u></strong>.'
 				,'Villainous Weapons empower the Villain holding them, adding the [ATTACK] bonus printed on the Weapon. Tuck the Weapon under the Villain so you can see the Weapon\'s [ATTACK] bonus right under the Villain\'s [ATTACK].'
-				,'An enemy can use any number of Weapons at the same time, getting all of their bonuses combined.'
+				,'An Enemy can use any number of Weapons at the same time, getting all of their bonuses combined.'
 				,'<strong>When a Villain with any number of Villainous Weapons escapes the city, the Mastermind captures all those Weapons</strong>, getting their [ATTACK] bonuses.'
 				,'When you fight a Villain or Mastermind holding any number of Weapons, <strong>put all those Weapons into your discard pile as Artifacts</strong>.'
 				,'When you have a Villainous Weapon in your hand, you can play it just like any other Artifact.'
 				,'<strong>You never get the Weapon\'s printed [ATTACK] bonus</strong> when you play the Artifact or control it. Only Villains and Masterminds get that [ATTACK] bonus. You only get the specific Artifact abilities written on the card.'
 				,'Villainous Weapons you have captured as Artifacts <strong>have 0 cost</strong>, have no color or Hero Class, and don\'t count as Hero cards or Villain cards. Since they have no cost, Villainous Weapons can never make you Worthy. (How appropriate… )'
-				,'If you have gained a Villainous Weapon, and a card effect makes an enemy capture that Weapon again, then it works as a Villainous Weapon again until someone defeats that enemy to reclaim it.'
+				,'If you have gained a Villainous Weapon, and a card effect makes an Enemy capture that Weapon again, then it works as a Villainous Weapon again until someone defeats that Enemy to reclaim it.'
 				,'Malekith and Hela both have Mastermind Tactics that turn into Villainous Weapons. You win when the Mastermind has no face down Tactics left under them, even if there are still some Tactics that have turned into other card types somewhere.'
 			]
 		}
@@ -982,7 +1010,7 @@ export class LegendaryService {
 		,{
 			keyword: 'Wounded Fury'
 			,source: ['World War Hulk']
-			,represents: 'This keyword represents how wounding a Hulk often just makes it ANGRIER and STRONGER! It also includes Villains attacking with more furious bloodlust as they wound you.'
+			,represents: 'This keyword represents how wounding a Hulk often just makes it ANGRIER and STRONGER! It also includes Villains attacking with more furious blood lust as they wound you.'
 			,definition: 'When a Hero card says "Wounded Fury", it means "<strong>You get +1 [ATTACK] for each Wound in your discard pile</strong>."'
 			,clarification: [
 				'Likewise, when a Villain or Mastermind says "Wounded Fury", it means "<strong>It gets +1 [ATTACK] for each Wound in your discard pile</strong>."'
@@ -1015,7 +1043,7 @@ export class LegendaryService {
 				'This is similar to how a Villain does its Ambush ability when it enters the city.'
 				,'As always, you "have a [INSTINCT] Hero" if you have played a [INSTINCT] Hero this turn or if you have a [INSTINCT] Hero in your hand (or if you control a [INSTINCT] Hero Artifact).'
 				,'New Heroes usually enter the HQ when you recruit a Hero or a Villain escapes from the city, creating an empty space in the HQ that you refill.'
-				,'In games with Hero Ambushe abilities, you may want to recruit before you fight, in case a new Hero entering the HQ gives you extra [ATTACK] or cards that you can use to fight stronger enemies.'
+				,'In games with Hero Ambush abilities, you may want to recruit before you fight, in case a new Hero entering the HQ gives you extra [ATTACK] or cards that you can use to fight stronger enemies.'
 			]
 		}
 		,{
@@ -1029,7 +1057,7 @@ export class LegendaryService {
 				,'If you fight a Villain with negative [ATTACK], you won\'t get a refund.'
 				,'Some cards specifically say they Wound the Mastermind. This works the same way, with all of the Mastermind\'s Wounds returning to the Wound Stack after a Mastermind Tactic is fought. The Wounds go away even if the Mastermind Tactic tells you to shuffle the Tactic back into the Mastermind\'s other Tactics or put the Tactic somewhere else.'
 				,'Killmonger has 5 [ATTACK] and says "While Killmonger has more than <strong>O [ATTACK]</strong>, you cannot fight him." Instead, you may spend [ATTACK] equal to his [ATTACK] to Wound him.  Players will have to spend 5 [ATTACK], then 4 [ATTACK], 3 [ATTACK], 2 [ATTACK], and 1 [ATTACK], getting 5 [RECRUIT] along the way. Then a player can fight him at <strong>O [ATTACK]</strong> to take a random Tactic, remove Killmonger\'s Wounds.'
-				,'Malice and Preyy work similarly. You can Wound them this way multiple times per turn. This does not count as a "Fight." Don\'t rescue captured Bystanders. You can still use the "Healing" ability on your own Wounds the same turn you Wound an enemy this way.'
+				,'Malice and Prey work similarly. You can Wound them this way multiple times per turn. This does not count as a "Fight." Don\'t rescue captured Bystanders. You can still use the "Healing" ability on your own Wounds the same turn you Wound an Enemy this way.'
 				,'If your Wound Stack contains different kinds of Wounds, like the Grievous Wounds from Legendary®: Civil War, then whenever you return Wounds to the Wound Stack, put them on the bottom. Wounds on enemies are face up.'
 				,'If an effect causes "each player" to gain a Wound (or do anything else), start with the current player then go clockwise.'
 			]
@@ -1087,7 +1115,7 @@ export class LegendaryService {
 		,{
 			keyword: 'Demonic Bargain'
 			,source: ['Doctor Strange and The Shadows of Nightmare']
-			,represents: 'Demons offer gifts of power with a dark price, hoping to corrupt the souls of mortals.  These deals with the devil are especially corrupting to the powerful and arrogant.  The humble are more likely to escape with their souls intact. This is represended with the new Demonic Bargain keyword.'
+			,represents: 'Demons offer gifts of power with a dark price, hoping to corrupt the souls of mortals.  These deals with the devil are especially corrupting to the powerful and arrogant.  The humble are more likely to escape with their souls intact. This is represented with the new Demonic Bargain keyword.'
 			,definition: 'Players making a Demonic Bargain <strong>discard the top card of their draw deck to see if they are corrupted by power. Revealed cards costing 1 or more result in the player being corrupted.  Zero-costing cards result in the player resisting corruption</strong>.'
 			,clarification: [
 				'Some Villains like Satana Hellstrom say things like "Fight: Choose a player to make a Demonic Bargain with Satana Hellstrom to rescue three Bystanders."'
@@ -1102,8 +1130,8 @@ export class LegendaryService {
 		,{
 			keyword: 'Astral Plane'
 			,source: ['Doctor Strange and The Shadows of Nightmare']
-			,represents: 'The Fear Lords are cruel demons that move themselves and others beyond the physical world to a realm of pure psychic energy.  There they prey on the human psyche, evoking nightmare and terror.  This is represended with the new "Astral Plane" abilities.'
-			,definition: 'The Astral Plane is a single, unique space that only exists in games with cards that use the Astral Plane.  Villains in the Atral Plane <strong>can only be fought with [RECRUIT], not [ATTACK]</strong>.'
+			,represents: 'The Fear Lords are cruel demons that move themselves and others beyond the physical world to a realm of pure psychic energy.  There they prey on the human psyche, evoking nightmare and terror.  This is represented with the new "Astral Plane" abilities.'
+			,definition: 'The Astral Plane is a single, unique space that only exists in games with cards that use the Astral Plane.  Villains in the Astral Plane <strong>can only be fought with [RECRUIT], not [ATTACK]</strong>.'
 			,clarification: [
 				'When you fight a Villain in the Astral Plane, put it in your Victory Pile and do its Fight effect as normal.'
 				,'<strong>When a Villain enters the Astral Plane, any Villain already there escapes</strong>. This causes all the same effects as if that Villain had escaped the city (including KO\'ing from the HQ, discarding from captured Bystanders, and Escape abilities).'
@@ -1111,13 +1139,13 @@ export class LegendaryService {
 				,'The Mastermind "Nightmare" can also enter the Astral Plane. While there, he can only be fought with [RECRUIT], not [ATTACK]. If he escapes the Astral Plane, do all the normal effects for a Villain escaping the city. Then do the Escape ability written on Nightmare, which moves him to the Mastermind space.'
 				,'The Astral Plane is not a city space. It\'s not "adjacent" to any city spaces. Card effects can\'t move or swap Villains to or from the Astral Plane unless they explicitly mention the Astral Plane.'
 				,'Villains do Ambush effects when they enter the city. The Astral Plane is not part of the city, so Villains that enter the Astral Plane don\'t do their Ambush effects at that time.'
-				,'For keywords from other sets: To fight a "Chivalrous Duel" enemy in the Astral Plane, you must spend [RECRUIT] from a single Hero name. You must spend [RECRUIT] to use Excessive Violence or Human Shields from the Astral Plane. You can\'t use "Piercing Energy" on enemies in the Astral Plane. "Bribe" and other cards that say "You can spend any combination of [RECRUIT] and [ATTACK] to fight that villain this turn" do not work against enemies in the Astral Plane.'
+				,'For keywords from other sets: To fight a "Chivalrous Duel" Enemy in the Astral Plane, you must spend [RECRUIT] from a single Hero name. You must spend [RECRUIT] to use Excessive Violence or Human Shields from the Astral Plane. You can\'t use "Piercing Energy" on enemies in the Astral Plane. "Bribe" and other cards that say "You can spend any combination of [RECRUIT] and [ATTACK] to fight that villain this turn" do not work against enemies in the Astral Plane.'
 			]
 		}
 		,{
 			keyword: 'Ritual Artifacts'
 			,source: ['Doctor Strange and The Shadows of Nightmare']
-			,represents: 'Marvel\s sorcerers invoke Rituals of awesome power, anchored by mystic talismans.  This is represented with a special type of Artifact appearing for the first time in this set: Ritual Artifacts.  These use the Artifact rules, with some new twists.'
+			,represents: 'Marvel\'s sorcerers invoke Rituals of awesome power, anchored by mystic talismans.  This is represented with a special type of Artifact appearing for the first time in this set: Ritual Artifacts.  These use the Artifact rules, with some new twists.'
 			,definition: 'Once a Ritual Artifact is controlled, upon meeting the Ritual conditions you can choose to discard the Ritual Artifact to get the printed effects.'
 			,clarification: [
 				'Artifacts are controlled once you play them during your turn.'
@@ -1126,14 +1154,14 @@ export class LegendaryService {
 				,'If you have fulfilled the listed Ritual condition this turn, you can discard the Ritual Artifact to get the listed effect.'
 				,'You don\'t have to use the Ritual Artifact even if you fulfill the Ritual condition.  You might want to save it for a future turn instead of discarding it.'
 				,'You can use as many Ritual Artifacts as you wish in a turn, including using multiple Ritual Artifacts with the same name.  If you draw one card, that\'s enough to use the Rituals of multiple Artifacts that each have the condition "Draw a card."'
-				,'If you use a "draw a card" ability, and it draws you a Ritual Artifact with the condition "draw a card", then you can play that Artifact and use it right away.  It\s ok that the Artifact wasn\'t in play when you fulfilled the Ritual condition earlier in the turn.'
-				,'If a card lets you "copy" a Ritual Artifact card or "play a copy of it", then you can use its Ritual effect (or "Thrown Artifact" or "Once per turn" Artifact ability) once, and you don\t need to fulfill the ritual condition.  You don\'t need to immediately discard the copy card to use the Ritual.  The copy doesn\'t stay in play as an Artifact.'
+				,'If you use a "draw a card" ability, and it draws you a Ritual Artifact with the condition "draw a card", then you can play that Artifact and use it right away.  It\'s ok that the Artifact wasn\'t in play when you fulfilled the Ritual condition earlier in the turn.'
+				,'If a card lets you "copy" a Ritual Artifact card or "play a copy of it", then you can use its Ritual effect (or "Thrown Artifact" or "Once per turn" Artifact ability) once, and you don\'t need to fulfill the ritual condition.  You don\'t need to immediately discard the copy card to use the Ritual.  The copy doesn\'t stay in play as an Artifact.'
 			]
 		}
 		,{
 			keyword: 'Clone'
 			,source: ['Messiah Complex']
-			,represents: 'Multiple Man and the Stepford Cuckoos are literal clones.  M and her sisters can transform into copies of each other.  Shatterstar is genetically engineered from cloned DNA.  All of these use the new Clone keyword/'
+			,represents: 'Multiple Man and the Stepford Cuckoos are literal clones.  M and her sisters can transform into copies of each other.  Shatterstar is genetically engineered from cloned DNA.  All of these use the new Clone keyword.'
 			,definition: 'Clone means: <strong>You may gain another copy of this card from the HQ. If there are none in the HQ, you may gain a copy from the Hero Deck and shuffle it</strong>.'
 			,clarification: [
 				'"Gain" means "put it into your discard pile."'
@@ -1141,7 +1169,7 @@ export class LegendaryService {
 				,'Some Heroes say "When Recruited: Clone." This means <strong>Use the Clone ability immediately when you recruit this Hero</strong>. (Do this right after you put the recruited Hero in your discard pile, after you refill its HQ space.)'
 				,'Use a "When Recruited" ability only when you recruit a Hero, not when an ability causes you to "gain" a Hero or "put it in your hand." So the copy you gain from "When Recruited: Clone" <strong>won\'t</strong> make you gain more copies.'
 				,'Some Heroes say things like "When Recruited  - [CONVERT]: Clone."  <strong>Use this ability only if you have played a [CONVERT] Hero turn before recruiting this card.'
-				,'On a Villain, "Ambush: Clone" means: Search the Villain Deck for a copy of this Villain, and it enters the city, ignoring any further Clone effects. Shuffle that deck. When you Clone a "Predator X" Villain, just use the first "Predator X" you find in the Villain Deck.'
+				,'On a Villain", Ambush: Clone" means: Search the Villain Deck for a copy of this Villain, and it enters the city, ignoring any further Clone effects. Shuffle that deck. When you Clone a "Predator X" Villain, just use the first "Predator X" you find in the Villain Deck.'
 				,'If you can\'t find a Clone copy of a Villain (or Hero), just move on.'
 			]
 		}
@@ -1149,7 +1177,7 @@ export class LegendaryService {
 			keyword: 'Shatter'
 			,source: ['Messiah Complex']
 			,represents: 'Rictor\'s earthquake powers, Siryn\'s sonic shrieks and Shatterstar\'s bioelectric shocks can Shatter even the strongest defenses.'
-			,definition: 'This means "<strong>Halve that enemy\'s current [ATTACK]. (round up to the nearest whole number.)</strong>" This effect lasts until the end of this turn.'
+			,definition: 'This means "<strong>Halve that Enemy\'s current [ATTACK]. (round up to the nearest whole number.)</strong>" This effect lasts until the end of this turn.'
 			,clarification: [
 				'You can shatter the same Villain multiple times, halving their [ATTACK] (rounding up) each time.'
 				,'"Shatter a Villain" can\'t be used on a Mastermind.'
@@ -1171,7 +1199,7 @@ export class LegendaryService {
 		,{
 			keyword: 'Prey'
 			,source: ['Messiah Complex']
-			,definition: 'Some Villains say things like "Ambush: Prey on the fewest [TECH]." After this Villain enters the Sewers, each player reveals their hand, and you check which player has the fewest [TECH] cards. (The current player decides how to break ties, including ties of 0 [TECH] cards.) <strong>Put this Villain in front of that player, "Preying" on them</strong>.'
+			,definition: 'Some Villains say things like "Ambush: Prey on the fewest [TECH]." After this Villain enters the Sewers, each player reveals their hand, and you check which player has the fewest [TECH] cards. (The current player decides how to break ties, including ties of 0 [TECH] cards.) <strong>Put this Villain in front of that player", Preying" on them</strong>.'
 			,clarification: [
 				'Any player may still fight that Villain as normal. However: <strong>if no player defeats that Villain by the end of the preyed- on player\'s turn, use that Villain\'s "Finish the Prey" ability against that player, then that Villain enters the Sewers, ignoring its Ambush effects</strong>.'
 				,'<strong>Important: Do the "Finish the Prey" ability after that player draws their new hand at end of turn</strong>. Some players like to lean the Prey Villain on their deck as a reminder to Finish the Prey then.'
@@ -1182,8 +1210,8 @@ export class LegendaryService {
 		,{
 			keyword: 'Chivalrous Duel'
 			,source: ['Messiah Complex']
-			,represents: 'This keyword represents how Morgan le Fay, knights of her "Queen\'s Vengeance" or Clan Yashida samurai hail from a realm of honorable single combat. You can\'t gang up on an enemy in a Chivalrous Duel you have to pick just one Hero Name to duel the enemy.'
-			,definition: '<strong>To fight and enemy with "Chivalrous Duel", all the [ATTACK] you spend must come from a single Hero Name</strong>.'
+			,represents: 'This keyword represents how Morgan le Fay, knights of her "Queen\'s Vengeance" or Clan Yashida samurai hail from a realm of honorable single combat. You can\'t gang up on an Enemy in a Chivalrous Duel you have to pick just one Hero Name to duel the Enemy.'
+			,definition: '<strong>To fight and Enemy with "Chivalrous Duel", all the [ATTACK] you spend must come from a single Hero Name</strong>.'
 			,clarification: [
 				'For example, to fight a 3 [ATTACK] Villain with Chivalrous Duel, you can spend 3 [ATTACK] from two different Black Knight hero cards. But you can\'t combine 2 [ATTACK] from Black Knight cards and 1 [ATTACK] from a Wasp card.'
 				,'If a Hero has no Hero Name listed, (like S.H.I.E.L.D. Trooper, or any Sidekick, or a Villain that became a Hero) then its Hero Name is the same as its card name. So you can play three S.H.I.E.L.D. Troopers then fight a 3 [ATTACK] Villain with Chivalrous Duel. But you can\'t spend 2 [ATTACK] from Shatterstar cards and 1 [ATTACK] from a S.H.I.E.L.D. Trooper to fight a Chivalrous Duel.'
@@ -1212,9 +1240,9 @@ export class LegendaryService {
 				'Artifacts are controlled once you play them during your turn.'
 				,'Once controlled they remain in front of you at the end of your turn.'
 				,'Some cards say things like "Triggered Artifact - Whenever you draw a card during your turn, you get +1 [ATTACK]."  While you control this Artifact, <strong>every time you do that trigger, you get the listed effect</strong>.'
-				,'You can use as many Triggered Artifacts as you wish in a turn, including using multiple Triggered Artifacts with the same name.  If you draw one card, that\'s enough to trip the trigger of multiple Artifacts that each have athe condition "Draw a card."'
+				,'You can use as many Triggered Artifacts as you wish in a turn, including using multiple Triggered Artifacts with the same name.  If you draw one card, that\'s enough to trip the trigger of multiple Artifacts that each have the condition "Draw a card."'
 				,'If you use a "draw a card" ability, and it draws you a Triggered Artifact with the condition "draw a card", you can play that Artifact right away but must draw another card to trigger its effect.'
-				,'If a card lets you "copy" a Triggered Artifact card or "play a copy of it", then you can use that Triggered Artifact ability (or "Thrown Artifact", "Once per turn" Artifact or "Ritual Artifact" ability) once and you don\'t need to fulfill the trigger.  The copy doesn\'t stay in play as an Artifact.  The "Legendary® Outlaw" card from the 2014 Guardians set cannot copy any Artifacts in this set.'
+				,'If a card lets you "copy" a Triggered Artifact card or "play a copy of it", then you can use that Triggered Artifact ability (or "Thrown Artifact"", Once per turn" Artifact or "Ritual Artifact" ability) once and you don\'t need to fulfill the trigger.  The copy doesn\'t stay in play as an Artifact.  The "Legendary® Outlaw" card from the 2014 Guardians set cannot copy any Artifacts in this set.'
 			]
 		}
 		,{
@@ -1229,14 +1257,14 @@ export class LegendaryService {
 			keyword: 'Blood Frenzy'
 			,source: ['Midnight Sons']
 			,represents: 'Vampires and Werewolves famously crave the taste of blood.  Furious rage drives them to seek more of the red delight, gaining strength from every kind of blood they drain.  This is shown by the new Blood Frenzy keyword.'
-			,definition: 'Blood Frenzy on a Hero card means "You get +1 [ATTACK] for each different VP value you have among cards in your Victory Pile."'
+			,definition: 'Blood Frenzy on a Hero card means "You get +1 [ATTACK] for each different [VICTORY POINTS] value you have among cards in your Victory Pile."'
 			,clarification: [
-				'Likewise on a Villain card, during your turn Blood Frenzy means "This Villain gets +1 [ATTACK] for each different VP value you have among cards in your Victory Pile."'
-				,'(VP means "Victory Points, " shown as [VICTORY POINTS].)'
-				,'It only matters how many different VP values you have among cards in your Victory Pile. It doesn\'t matter how many you have of any single value. So if your Victory Pile has cards worth 0, 1, 1, 1, 2, 2, and 5 VP, then Blood Frenzy would give +4 [ATTACK].'
+				'Likewise on a Villain card, during your turn Blood Frenzy means "This Villain gets +1 [ATTACK] for each different [VICTORY POINTS] value you have among cards in your Victory Pile."'
+				,'(VP means "Victory Points",  shown as [VICTORY POINTS].)'
+				,'It only matters how many different [VICTORY POINTS] values you have among cards in your Victory Pile. It doesn\'t matter how many you have of any single value. So if your Victory Pile has cards worth 0, 1, 1, 1, 2, 2, and 5 [VICTORY POINTS], then Blood Frenzy would give +4 [ATTACK].'
 				,'This includes Bystanders in your Victory Pile. Horrifically, even heroic Vampires and Werewolves cannot always resist draining blood from innocents!'
-				,'Use whatever VP a card is worth, not just its printed VP. If a Master Strike becomes "a Villain worth 4VP, " then it counts as 4VP for Blood Frenzy. An "Undercover" Agent worth 1VP counts as 1VP too.'
-				,'If a card gets into your Victory Pile somehow with no printed or specified VP value, it counts as "0 VP, " which is a number that can help your Blood Frenzy'
+				,'Use whatever [VICTORY POINTS] a card is worth, not just its printed [VICTORY POINTS]. If a Master Strike becomes "a Villain worth 4 [VICTORY POINTS]", then it counts as 4 [VICTORY POINTS] for Blood Frenzy. An "Undercover" Agent worth 1 [VICTORY POINTS] counts as 1 [VICTORY POINTS] too.'
+				,'If a card gets into your Victory Pile somehow with no printed or specified [VICTORY POINTS] value, it counts as "0 [VICTORY POINTS]", which is a number that can help your Blood Frenzy.'
 			]
 		}
 		,{
@@ -1247,16 +1275,16 @@ export class LegendaryService {
 			,clarification: [
 				'Other abilities on Lilith and the Lilin then benefit from the number of Bystanders in the KO Pile.'
 				,'If a player fights Lilith, and her Mastermind Tactic Hunts for Victims and captures a Bystander, the player doesn\'t immediately rescue that Bystander.'
-				,'When facing Enemies that Hunt for Victims, defeat Villains holding captured Bystandersquickly, before those Bystanders are Huntedas Victims!'
+				,'When facing enemies that Hunt for Victims, defeat Villains holding captured Bystanders quickly, before those Bystanders are Hunted as Victims!'
 			]
 		}
 		,{
 			keyword: 'Haunt'
 			,source: ['Midnight Sons']
 			,represents: 'Zarathos and his Fallen can control Heroes\' bodies like twisted puppets.'
-			,definition: 'Haunting means <strong>tuck this villain beneath the spcified Hero in the HQ, making the Hero unable to be recruited.</strong>  You can spend the Hero\'s cost to "free" the Hero.'
+			,definition: 'Haunting means <strong>tuck this villain beneath the specified Hero in the HQ, making the Hero unable to be recruited.</strong>  You can spend the Hero\'s cost to "free" the Hero.'
 			,clarification: [
-				'They say things like "Ambush: Haunt the rightmost unhaunted Hero in the HQ.  This means: Tuck this Villain beneath that Hero, "Haunting" it, so you can see the Villain\'s name. Players can\'t recruit that Haunted Hero while the Haunting Villain is under it.'
+				'They say things like "Ambush: Haunt the rightmost unhaunted Hero in the HQ.  This means: Tuck this Villain beneath that Hero", Haunting" it, so you can see the Villain\'s name. Players can\'t recruit that Haunted Hero while the Haunting Villain is under it.'
 				,'Instead, a player can spend [ATTACK] equal to the Haunted Hero\'s cost to "exorcise" that Haunted Hero. If a player does, they either KO the Haunted Hero or choose a player to gain it. Then the Haunting Villain enters the city, ignoring any Ambush effects it has.'
 				,'While a Villain is Haunting a Hero, you can\'t fight the Haunting Villain itself - you have to spend [ATTACK] to exorcise the Haunted Hero first, driving the Haunting Villain into the city so you can finish it off there.'
 				,'Exorcizing a Haunted Hero is not a "fight" - don\'t do any Fight abilities on the Haunting Villain.'
@@ -1266,7 +1294,7 @@ export class LegendaryService {
 				,'Card effects that let you "gain a Hero from the HQ" or "Put a Hero from the HQ on the bottom of the Hero Deck" still work on Haunted Heroes.'
 				,'However, card effects that say "recruit a Hero from the HQ for free" don\'t work on Haunted Heroes, since you can\'t recruit them.'
 				,'If something causes a Haunted Hero to leave the HQ, then the Haunting Villain stays in that HQ space and Haunts the new Hero that arrives to refill that HQ space.'
-				,'If an HQ space is "destroyed, " KO any Haunted Hero there and the Haunting Villain there enters the city, ignoring any Ambush effects.'
+				,'If an HQ space is "destroyed",  KO any Haunted Hero there and the Haunting Villain there enters the city, ignoring any Ambush effects.'
 			]
 		}
 		,{
@@ -1275,22 +1303,22 @@ export class LegendaryService {
 			,represents: 'At the perfect moment, Black Widows shed their disguised identities, reveal themselves, and strike. To represent this, Heroes use the new Unleash keyword.'
 			,definition: 'When an effect says to "Unleash a Hero from Undercover": Return that Hero from your Victory Pile to your hand.'
 			,clarification: [
-				'If you have several cards Undercover with a trigger like "When you fight a Villain, you may Unleash this card from Undercover, " fighting one Villain is enough to Unleash any number of those cards.'
+				'If you have several cards Undercover with a trigger like "When you fight a Villain, you may Unleash this card from Undercover",  fighting one Villain is enough to Unleash any number of those cards.'
 				,'When you Unleash a Hero back to your hand, you can play that Hero on that same turn as normal. At the end of your turn, it will go to your discard pile as normal. It doesn\'t return to your Victory Pile unless an effect tells the card to go Undercover again.'
-				,'If you Unleash cards based on fighting Villains or the Mastermind, you can do the Unleash effects and/or Fight effects from that enemy in any order.'
+				,'If you Unleash cards based on fighting Villains or the Mastermind, you can do the Unleash effects and/or Fight effects from that Enemy in any order.'
 			]
 		}
 		,{
 			keyword: 'Endgame'
 			,source: ['Marvel Studios Infinity Saga']
-			,represents: 'This new keyword represents how the Children of Thanos attack most fiercely in their final battles of their Endgame: the destruction of the Avengers, Wakanda, half of all life, and eventually all life in the universe'
-			,definition: 'Some Enemies say things like "Endgame: +3 [ATTACK]."  It is the "Endgame" whenever the Villain Deck holds 8 cards per player or fewer'
+			,represents: 'This new keyword represents how the Children of Thanos attack most fiercely in their final battles of their Endgame: the destruction of the Avengers, Wakanda, half of all life, and eventually all life in the universe.'
+			,definition: 'Some enemies say things like "Endgame: +3 [ATTACK]."  It is the "Endgame" whenever the Villain Deck holds 8 cards per player or fewer.'
 			,clarification: [
-				'This gives Enemies their Endgame [ATTACK] bonus or other listed Endgame abilities.'
-				,'Captain Marvel is not in Infinity War and arrives only in the Endgame movie, reaching her full power in the final battle. Accordingly, she uses the Endgame keyword in the same way Enemies do.'
+				'This gives enemies their Endgame [ATTACK] bonus or other listed Endgame abilities.'
+				,'Captain Marvel is not in Infinity War and arrives only in the Endgame movie, reaching her full power in the final battle. Accordingly, she uses the Endgame keyword in the same way enemies do.'
 				,'If you reach the Endgame and then cards are added back to the Villain Deck somehow, it might not be the Endgame anymore. If a Scheme has multiple Villain Decks, it is the Endgame if any of them are small enough.'
-				,'Some Enemies have special abilities that say "It is the Endgame this turn." This temporarily activates Endgame abilities for all Heroes and Enemies across the game this turn.'
-				,'Captain Marvel also has a card which says "For the rest of this turn, it is the Endgame for your Hero cards." This turns on Heroes\' Endgame abilities, but it does not activate Enemies\' Endgame abilities.'
+				,'Some enemies have special abilities that say "It is the Endgame this turn." This temporarily activates Endgame abilities for all Heroes and enemies across the game this turn.'
+				,'Captain Marvel also has a card which says "For the rest of this turn, it is the Endgame for your Hero cards." This turns on Heroes\' Endgame abilities, but it does not activate enemies\' Endgame abilities.'
 				,'If you are playing with Endgame abilities, you may find it easier to count 8 cards per player from the bottom of the Villain Deck and put that bottom section to the side of the rest of the Villain Deck. Or keep the Villain Deck in one stack but turn that bottom section of the deck 90 degrees, perpendicular to the top section. This will make it easier to see how close you are to the Endgame. Remember that it\'s technically all still one deck, so you might not want to do this if using a Scheme that shuffles the Villain Deck, like "Sacrifice for the Soul Stone."'
 			]
 		}
@@ -1303,22 +1331,22 @@ export class LegendaryService {
 				'Sacrificing is always optional: you don\'t have to use the Sacrifice ability and KO the card, even if you played the matching Hero Class earlier in the turn. However, if you don\'t KO the Sacrifice card, you can\'t use the Sacrifice ability.'
 				,'You still get the normal [RECRUIT], [ATTACK] and any nonSacrifice abilities from the card, whether you Sacrifice it or not.'
 				,'You have to choose whether to Sacrifice the card at the moment you play it. You can\'t wait then Sacrifice it later in the turn.'
-				,'If you Sacrifice it, you still "played it this turn," for triggering abilities like "[STRENGTH] : You get +1 [ATTACK], " However, it\'s no longer "one of your Heroes" or "a Hero you have, " since it has gone to the KO pile.'
+				,'If you Sacrifice it, you still "played it this turn," for triggering abilities like "[STRENGTH] : You get +1 [ATTACK]",  However, it\'s no longer "one of your Heroes" or "a Hero you have",  since it has gone to the KO pile.'
 			]
 		}
 		,{
 			keyword: 'Heist'
 			,source: ['Marvel Studios Ant-Man and the Wasp']
 			,represents: 'Scott Lang\'s elaborate Heists are highlights of the movies, represented by this new keyword.'
-			,definition: 'Once per turn you can attempt a Heist.  Reveal the top card of the Villain Deck compare its printed VP to the total number of non-zero heroes you have.  If your count is greater than the VP value, you may use all of the Heist effects of Heroes you have already played this turn.'
+			,definition: 'Once per turn you can attempt a Heist.  Reveal the top card of the Villain Deck compare its printed [VICTORY POINTS] to the total number of non-zero heroes you have.  If your count is greater than the [VICTORY POINTS] value, you may use all of the Heist effects of Heroes you have already played this turn.'
 			,clarification: [
 				'Some cards say things like "Heist: You get +2 [RECRUIT]."'
-				,'Once per turn, if you have played any Heroes with Heist abilities (and/or fought any Enemies with Heist abilities) you may "attempt a Heist."'
-				,'To do this, first assemble your crew: Count the number of different non-zero costs you have among all your Heroes this turn.  This is your Heist Count. Then try to outfox the guards: Reveal the top card of the Villain Deck and check its printed VP.'
-				,'If your Heist Count is higher than that VP: The Heist worked! Use all Heist effects of the Heroes you played and Enemies you fought this turn, in any order.'
-				,'If your Heist Count is tied with that VP: It all went sideways, and you barely escaped!  No effects'
-				,'If your Heist Count is lower than that VP: Your crew got caught! You gain a Wound (& no Heist effects).'
-				,'You can only ever attempt one Heist per turn, no matter the outcome. If you succeed in the Heist, do all of the Heist effects before moving on to playing more Heroes or recruiting or fighting anything else. After your one Heist attempt for the turn, if you draw additional cards with Heist abilities (or fight additional Enemies with Heist abilities), it will be too late to get those additional Heist effects.'
+				,'Once per turn, if you have played any Heroes with Heist abilities (and/or fought any enemies with Heist abilities) you may "attempt a Heist."'
+				,'To do this, first assemble your crew: Count the number of different non-zero costs you have among all your Heroes this turn.  This is your Heist Count. Then try to outfox the guards: Reveal the top card of the Villain Deck and check its printed [VICTORY POINTS].'
+				,'If your Heist Count is higher than that [VICTORY POINTS]: The Heist worked! Use all Heist effects of the Heroes you played and enemies you fought this turn, in any order.'
+				,'If your Heist Count is tied with that [VICTORY POINTS]: It all went sideways, and you barely escaped!  No effects.'
+				,'If your Heist Count is lower than that [VICTORY POINTS]: Your crew got caught! You gain a Wound (& no Heist effects).'
+				,'You can only ever attempt one Heist per turn, no matter the outcome. If you succeed in the Heist, do all of the Heist effects before moving on to playing more Heroes or recruiting or fighting anything else. After your one Heist attempt for the turn, if you draw additional cards with Heist abilities (or fight additional enemies with Heist abilities), it will be too late to get those additional Heist effects.'
 				,'Heist checks for printed cost, so 4 [STAR] and 4 count as the same cost.'
 				,'You don\'t have to go on a Heist. Weigh it carefully!'
 			]
@@ -1344,7 +1372,7 @@ export class LegendaryService {
 		,{
 			keyword: 'Ambush Schemes'
 			,source: ['Marvel Studios Ant-Man and the Wasp']
-			,definition: 'Each Villain Group in this set includes an "Ambush Scheme."  These are shuffled inot the Villain Deck alongside their Villain Group as normal. When an Ambush Scheme is played from the Villain Deck, put it next to the normal Scheme and do its Ambush effect.  For the rest of the game, whenever a Scheme Twist is played, do each Scheme\'s Twist effect (in any order).  Each Ambush Scheme tells you a way to "defeat this Scheme." When you do that, the current player puts it into their Victory Pile, scoring its Victory Points. Ambush Schemes aren\'t Villains. They don\'t enter the city or push other Villains forward. You don\'t need to defeat Ambush Schemes to win the game.'
+			,definition: 'Each Villain Group in this set includes an "Ambush Scheme."  These are shuffled into the Villain Deck alongside their Villain Group as normal. When an Ambush Scheme is played from the Villain Deck, put it next to the normal Scheme and do its Ambush effect.  For the rest of the game, whenever a Scheme Twist is played, do each Scheme\'s Twist effect (in any order).  Each Ambush Scheme tells you a way to "defeat this Scheme." When you do that, the current player puts it into their Victory Pile, scoring its Victory Points. Ambush Schemes aren\'t Villains. They don\'t enter the city or push other Villains forward. You don\'t need to defeat Ambush Schemes to win the game.'
 			,clarification: [
 				'Note: There can only be one Ambush Scheme in play at a time. If a second Ambush Scheme would be played from the Villain Deck, KO the new Ambush Scheme and play another card from the Villain Deck instead.'
 			]
@@ -1353,7 +1381,7 @@ export class LegendaryService {
 			keyword: 'Antics'
 			,source: ['Marvel Studios Ant-Man and the Wasp']
 			,represents: 'Some of Ant-Man\'s craziest moments come when he uses his power to control tiny ants, as well as shrinking himself down to ant size or growing ants to giant size!'
-			,definition: 'Some cards say things like "Antics: You get +2 [ATTACK]." You can use a card\'s Antics abilities only if you have at least three cards that cost 1 or 2 and/or have Size-Changing'
+			,definition: 'Some cards say things like "Antics: You get +2 [ATTACK]." You can use a card\'s Antics abilities only if you have at least three cards that cost 1 or 2 and/or have Size-Changing.'
 			,clarification: [
 				'The Antics card itself can count towards those three cards if it costs 1 or 2 and/or has Size-Changing.'
 				,'"Cards you have" includes both cards you played this turn and cards still in your hand, so both of those can help you use Antics.'
@@ -1368,7 +1396,7 @@ export class LegendaryService {
 			,clarification: [
 				'What If...? is not allowed to trigger on 0-cost grey starting cards like S.H.I.E.L.D. Agent or S.H.I.E.L.D. Trooper, so don\'t choose those Hero Names.'
 				,'Even if a What If...? ability misses, it\'s still valuable to be able to choose to put your top card in your discard pile or not. For example, it can give you key information about your top card so you know what to choose with your next What If...? card that turn. Or if the top card is a S.H.I.E.L.D. Agent, you can discard it so you have a chance to hit with your next What If...? ability that turn and so you don\'t have to draw it next turn.'
-				,'If you choose a Hero Name like "Black Widow, " that will trigger on any card whose Hero Name is literally "Black Widow" as well as any Hero Name that contains "Black Widow", such as "Apocalyptic Black Widow." However, you have to choose an actual Hero Name. You can\'t choose just the word "Captain" and trigger on both Captain America and Captain Carter cards, since the single word "Captain" isn\'t a Hero Name.'
+				,'If you choose a Hero Name like "Black Widow",  that will trigger on any card whose Hero Name is literally "Black Widow" as well as any Hero Name that contains "Black Widow", such as "Apocalyptic Black Widow." However, you have to choose an actual Hero Name. You can\'t choose just the word "Captain" and trigger on both Captain America and Captain Carter cards, since the single word "Captain" isn\'t a Hero Name.'
 				,'There are lots of ways you can increase the chance that your What If...? abilities will work...'
 				,'First: There are several cards in this set that let you reveal the top card of your deck or put a card on top of your deck, so that you know what to choose with What If...?.'
 				,'Second: You can try focusing your deck on a single Hero Class or single Hero Name.'
@@ -1380,12 +1408,12 @@ export class LegendaryService {
 			keyword: 'Soulbind'
 			,source: ['Marvel Studios What If...?']
 			,represents: 'In a maddened drive to save his beloved Christine Palmer, the alternate-dimension variant known as Doctor Strange Supreme binds demons\' dark souls to devour their power. Uatu the Watcher and Gamora also make crucial moves to bind certain souls and Infinity Stones. This is represented with the new Soulbind keyword.'
-			,definition: 'Some cards say things like "[RANGED] Soulbind: You get +[ATTACK] equal to that Villain\'s printed Victory Points.  This means "If you have played a [RANGED] Hero earlier this turn, you may choose a face up Villain card from your Victory Pile, turn it face down, and put it on the bottom of your Victory Pile. If you do, then do the listed Soulbind effect."'
+			,definition: 'Some cards say things like "[RANGED] Soulbind: You get + [ATTACK] equal to that Villain\'s printed Victory Points.  This means "If you have played a [RANGED] Hero earlier this turn, you may choose a face up Villain card from your Victory Pile, turn it face down, and put it on the bottom of your Victory Pile. If you do, then do the listed Soulbind effect."'
 			,clarification: [
 				'At the end of the game when you are counting Victory Points, turn all those face down cards face up again and you can count their Victory Points. But until the end of the game, the face down cards count as not being in your Victory Pile at all.'
 				,'This is a great way to stop Rise of the Living Dead Villains (described on page 18) from coming back to life out of your Victory Pile. The face down card can\'t be used for another Soulbind effect later. The face down card can\'t help you against Cross-Dimensional Rampages (also described on page 18). It doesn\'t count for effects that count the number of cards or Villains in your Victory Pile. Act as if the face down card is no longer in your Victory Pile at all, until you are counting Victory Points at the end of the game.'
 				,'Some cards ask you to Soulbind more specific things, like "Soulbind a Henchman" or "Soulbind six Villains."'
-				,'Using Soulbind is usually optional. You generally don\'t have to use Soulbind if you don\'t want to, whether on a Hero card you played or a Villain you just fought. However, some cards explicitly say that you "must Soulbind, " which means you have to do it.'
+				,'Using Soulbind is usually optional. You generally don\'t have to use Soulbind if you don\'t want to, whether on a Hero card you played or a Villain you just fought. However, some cards explicitly say that you "must Soulbind",  which means you have to do it.'
 			]
 		}
 		,{
@@ -1404,18 +1432,18 @@ export class LegendaryService {
 			,represents: 'In 2099, weak organic flesh is quickly becoming obsolete.  Desperate Heroes work with underground hacker-docs to augment their bodies with cybernetic enhancements, unleashing raw power.'
 			,definition: 'Some Heroes say things like "<strong>Cyber-Mod</strong> [TECH]: Draw a card."  You may use a Cyber-Mod ability only if you have a card of the listed Hero Class in your Victory Pile.  Villains and Masterminds use their Cyber-Mod abilities only while there are cards of the listed Hero Classes in the Escape Pile.'
 			,clarification: [
-				'Likewise, you can use "<strong>Cyber-Mod</strong> [RANGED][RANGED][RANGED]: You get <strong>+2</strong> [ATTACK]" only if you have at least 3 [RANGED] cards in your Vitory Pile'
-				,'The Heroes that use <strong>Cyber-Mods</strong> have ways to send cards <strong>Undercover</strong>.  Thiscan help you put the right cards into your Victory Pile to activate your <strong>Cyber-Mods</strong>.'
+				'Likewise, you can use "<strong>Cyber-Mod</strong> [RANGED][RANGED][RANGED]: You get <strong>+2</strong> [ATTACK]" only if you have at least 3 [RANGED] cards in your Victory Pile.'
+				,'The Heroes that use <strong>Cyber-Mods</strong> have ways to send cards <strong>Undercover</strong>.  This can help you put the right cards into your Victory Pile to activate your <strong>Cyber-Mods</strong>.'
 				,'The cyber-tech that infused Hulk 2099 with gamma rays lets him push his pain under the surface, channeling it into ever more strength and rage.  Accordingly, Hulk 2099 can send <em>Wounds</em> <strong>Undercover</strong> and use "<strong>Cyber-Mods</strong> Wound" abilities in the same way.'
 				,'If a Villain escapes the city with a captured Hero, that Hero card stays in the Escape Pile and can help activate all enemies\' <strong>Cyber-Mods</strong>.'
-				,'<strong>Cyber-Mod</strong> Enemies also have ways to put Hero cards directly into the Escape Pile, helping activate <strong>Cyber-Mods</strong>.'
+				,'<strong>Cyber-Mod</strong> enemies also have ways to put Hero cards directly into the Escape Pile, helping activate <strong>Cyber-Mods</strong>.'
 			]
 		}
 		,{
 			keyword: 'Fated Future'
 			,source: ['2099']
 			,represents: 'Marvel 2099 shows a chilling vision of what could come to pass if the characters of the Marvel Universe don\'t change Earth\'s fate.  Sometimes fate can seem inevitable... until someone finds the courage to turn the future in a new direction.  This is represented by the <strong>Fated Future</strong> keyword.'
-			,definition: '<strong>When you play a card with Fated Future, you may put it on the bottom of your deck.</strong>'
+			,definition: '<strong>When you play a card with Fated Future, you may put it on the bottom of your deck</strong>.'
 			,clarification: [
 				'This helps you draw the card again more quickly than if you discarded it, waited for your discard pile to shuffle into a new deck, then waited to draw the card.'
 				,'You can "predict the future" of when you\'ll see it again.'
@@ -1427,19 +1455,58 @@ export class LegendaryService {
 		,{
 			keyword: 'Uru-Enchanted Weapons'
 			,source: ['Legendary®: Fear Itself','2099']
-			,represents: 'To corrupt the people of 2099\'s faith in ancient Heroes, Alchemax creates false Asgardian "gods."  They combine nanotech and nuclear fusion to engineer jaw-dropping weapons that mimic the power of the fabled Mjolnir.  These use the <strong>Uru-Enchanted Weapons</strong> keyword.'
-			,definition: '<strong>When you try to fight an Enemy that has some number of Uru-Enchanted Weapons, reveal that many cards from the top of the Villain Deck.  That Enemy immediately gains + [ATTACK] equal to the total Victory Points of all the4 cards you revealed.</strong>'
+			,represents: 'To corrupt the people of 2099\'s faith in ancient Heroes, Alchemax creates false Asgardian "gods."  They combine nano-tech and nuclear fusion to engineer jaw-dropping weapons that mimic the power of the fabled Mjolnir.  These use the <strong>Uru-Enchanted Weapons</strong> keyword.'
+			,definition: '<strong>When you try to fight an Enemy that has some number of Uru-Enchanted Weapons, reveal that many cards from the top of the Villain Deck.  That Enemy immediately gains + [ATTACK] equal to the total Victory Points of all the4 cards you revealed</strong>.'
 			,clarification: [
-				'If you have at least as many [ATTACK] points as the Enemy\'s improved [ATTACK], use them and defeat the Enemy as normal.  If you don\'t have enough [ATTACK] points, you don\'t defeat this Enemey, you lose all your [ATTACK] points, and you can\'t use fight anymore this turn.  (You can still play cards and recruit - you just can\'t fight or Heal Wounds.)'
-				,'<strong>Whether you defeat that Enemy or not, pul all the cards you revealed from the Villain Deck on the bottom of that deck in random order.</strong>'
+				'If you have at least as many [ATTACK] points as the Enemy\'s improved [ATTACK], use them and defeat the Enemy as normal.  If you don\'t have enough [ATTACK] points, you don\'t defeat this Enemy, you lose all your [ATTACK] points, and you can\'t use fight anymore this turn.  (You can still play cards and recruit - you just can\'t fight or Heal Wounds.)'
+				,'<strong>Whether you defeat that Enemy or not, pul all the cards you revealed from the Villain Deck on the bottom of that deck in random order</strong>.'
 				,'Once you start to fight and Enemy, you can\'t play any more cards until after that fight is complete.  Remember to generate all the [ATTACK]  you can before you fight them!'
-				,'Flipping cards for <strong>Uru-Enchanted Weapons</strong> cannot end the game.  If you run out of cards in the Villain Deck, shippe the cards you\'ve revealed so far and keep revealing.  (If there are no cards left in the Villain Deck there is no bones [ATTACK].)'
-				,'Enemies with <strong>Uru-Enchanted Weapons</strong> sometimes also say things like "Fight or Fail: KO one of your Heroes."  <strong>Do the "Fight or Fail" effect if you successfully fight the Enemy or if you try to fight them but the Uru-Enchanted Weapons\' [ATTACK] bonus causes you to fail.</strong>'
-				,'You can\'t try to fight an enemy unless you have enough [ATTACK] points to match the enemy\'s printed [ATTACK].'
+				,'Flipping cards for <strong>Uru-Enchanted Weapons</strong> cannot end the game.  If you run out of cards in the Villain Deck, shuffle the cards you\'ve revealed so far and keep revealing.  (If there are no cards left in the Villain Deck there is no bones [ATTACK].)'
+				,'Enemies with <strong>Uru-Enchanted Weapons</strong> sometimes also say things like "Fight or Fail: KO one of your Heroes."  <strong>Do the "Fight or Fail" effect if you successfully fight the Enemy or if you try to fight them but the Uru-Enchanted Weapons\' [ATTACK] bonus causes you to fail</strong>.'
+				,'You can\'t try to fight an Enemy unless you have enough [ATTACK] points to match the Enemy\'s printed [ATTACK].'
 			]
 		}
-	
+		,{
+			keyword: 'Weapon X Sequence'
+			,source: ['Weapon X']
+			,represents: 'The lethal success of the Weapon Plus program comes from the relentless iteration on the science of death.  From Weapon XII to Weapon XIII to Weapon XV, each of their sequence of killers is more deadly than the last.'
+			,definition: 'On a Hero", Weapon X Sequence" means "<strong>you get + [ATTACK] equal to the longest sequence of different printed cost numbers on your cards</strong>."'
+			,clarification: [
+				'"Your cards" includes both cards you\'ve played this turn and cards in your hand.  You can count both.'
+				,'For example, say you have the costs 0, 4, 2, 7, 3 and 3.  Then each time you played a card with Weapon X Sequence ability you would get +3 [ATTACK], since your longest sequence of different cost numbers is 2-3-4.'
+				,'Each number in the sequence must be one higher than the previous number, including zero.  You can\'t skip any number in the sequence.  Having duplicates of the same cost doesn\'t help.  If your costs are 0, 0, 0, 4, 4 and 6 then your longest sequence is 1 and you would get +1 [ATTACK].'
+				,'After you play a Weapon X Sequence card, if you draw more cards later in the turn that would have extended your sequence, it\'s too late to go back and get more [ATTACK] from the Weapon X Sequence you already played.'
+				,'"Doubled Weapon X Sequence" means double the bonus from your sequence.'
+				,'Build your deck carefully to get long sequences!'
+			]
+		}
+		,{
+			keyword: 'Weapon X Sequence (Enemies)'
+			,source: ['Weapon X']
+			,represents: ''
+			,definition: 'On Enemies", Weapon X Sequence" means "<strong>This Enemy gets + [ATTACK] equal to the longest sequence of different printed cost numbers among cards in the HQ</strong>."'
+			,clarification: [
+				'For example, say the Heroes in the HQ have printed costs of 4, 7, 5, 3 and 2.  Then Weapon X Sequence gives an Enemy +4 [ATTACK] for the sequence 2-3-4-5.'
+				,'It doesn\'t matter which HQ spaces those cards are in or if any of them are physically in any particular order.'
+				,'One clever move is to recruit a Hero from the HQ at the right time, disrupting an Enemy\'s Weapon X Sequence before you fight them.  Take the above example where Heroes in the HQ have printed costs 4, 7, 5, 3 and 2.  If you recruit the 3-cost Hero and it gets replaced with a 5-cost hero, you\'ve reduced the Enemy\'s Weapon X Sequence bonus from +4 [ATTACK] to +2 [ATTACK].'
+			]
+		}
+		,{
+			keyword: 'Enraging Wounds'
+			,source: ['Weapon X']
+			,represents: 'Weapon Plus scientists inflicted excruciating torments on Weapon X and Weapon H that ignited their destructive rage for revenge.  Other Marvel Heroes also find the courage to fight more fiercely as they get hit.  "Enraging Wounds" give you bursts of power while requiring new ways to heal them.'
+			,definition: 'On Enemies", Weapon X Sequence" means "<strong>This Enemy gets + [ATTACK] equal to the longest sequence of different printed cost numbers among cards in the HQ</strong>."'
+			,clarification: [
+				'You can play Enraging Wounds from your hand during your turn, giving [RECRUIT], [ATTACK], and/or other special effects.'
+				,'Each Enraging Wound has its own unique "Healing" ability like "Healing: Wne you defeat a Henchman this turn, you may KO this Wound."  You can use this Healing ability during your turn, either after you\'ve played the Enraging Wound or while it\'s still in your hand.'
+				,'Unlike the Healing ability on normal Wounds, the KO abilities of Enraging Wounds don\'t prevent you from recruiting and fighting that turn.'
+				,'Enraging Wounds still count as Wounds for all card effects.  They cost 0, you can\'t recruit them, they\'re not Heroes.  If you use a normal Wound\'s Healing ability to "...KO all the WOunds from your hand", that will KO all Enraging Wounds from your hand too, but it won\'t KO any Wounds you played since they are not in your hand.'
+				,'Some sets put Wounds on enemies.  Ignore Enraging Wounds\' [ATTACK] numbers & text while they\'re on Enemies.'
+				,'Enraging Wounds offer extra bonuses, but they can\'t always be healed as easily as normal Wounds.  They also increase the total number of Wounds a group can suffer during a game, which can be a scheme metric.  So they are both helpful and harmful.'
+			]
+		}
 	] as MarvelLegendaryKeyword[];
+
 
 	static template = {
 		keyword: ''
