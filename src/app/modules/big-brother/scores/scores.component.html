@@ -4,9 +4,9 @@
 			<span>
 				<span *ngIf="s.rank">{{s.rank | numberOrdinal}}. </span>
 				{{s.name}}
-				<a routerLink="/bb/player/{{s.pkey}}">
+				<!-- <a routerLink="/bb/player/{{s.pkey}}">
 					<mat-icon [inline]="true">article</mat-icon>
-				</a>
+				</a> -->
 			</span>
 			<span>{{s.score | number:'1.2-2'}}</span>
 		</div>

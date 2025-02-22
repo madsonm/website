@@ -5,6 +5,7 @@ import { Color,LegendPosition,ScaleType } from '@swimlane/ngx-charts';
 import { SessionStorage } from 'ngx-webstorage';
 import { ModalService } from 'src/app/core/services/modal.service';
 import { BigBrotherService } from '../big-brother.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
 	selector: 'app-player',
@@ -33,9 +34,28 @@ export class PlayerComponent implements OnInit {
 	}
 
 	private load(): void {
-		this.service.player(this.pkey).subscribe(response => {
-			this.player = response ?? {};
+		const scores$ = this.service.scores();
+		const scoredetails$ = this.service.scoreDetails();
+
+		forkJoin([
+			scores$
+			,scoredetails$
+		]).subscribe(response => {
+			const players = response[0] ?? [];
+			const picks = response[1] ?? [];
+
+			this.player = players.filter(rec => rec.pkey === this.pkey)
+				.map(player => {
+					player.picks = picks
+						.filter(pick => pick && pick.active === 'Y' && pick.pkey === player.pkey)
+						.sort((a,b) => a.hkey > b.hkey ? 1 : -1);
+					return player;
+				})[0];
 		});
+
+		// this.service.player().subscribe(response => {
+		// 	this.player = (response ?? []).filter(rec => rec.pkey === this.pkey)[0];
+		// });
 	}
 
 	getClass(obj: any): string {

@@ -74,6 +74,30 @@
 				</mat-option>
 			</mat-select>
 		</mat-form-field>
+
+		<mat-form-field *ngIf="houseguestCount > 4">
+			<mat-label>Houseguest #5</mat-label>
+			<mat-select formControlName="hkey5">
+				<mat-option *ngFor="let h of getHouseguests('hkey5')" [value]="h.hkey">
+					<div class="select-houseguest">
+						<img matIconPrefix src="/img/bb/{{h.hkey}}.jpg">
+						<span>{{h.name | titlecase}}</span>
+					</div>
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+		<mat-form-field *ngIf="houseguestCount > 5">
+			<mat-label>Houseguest #6</mat-label>
+			<mat-select formControlName="hkey6">
+				<mat-option *ngFor="let h of getHouseguests('hkey6')" [value]="h.hkey">
+					<div class="select-houseguest">
+						<img matIconPrefix src="/img/bb/{{h.hkey}}.jpg">
+						<span>{{h.name | titlecase}}</span>
+					</div>
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
 	</mat-dialog-content>
 	<mat-dialog-actions align="end">
 		<div>

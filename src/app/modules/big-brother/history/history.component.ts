@@ -15,7 +15,7 @@ export class HistoryComponent implements OnInit {
 	constructor(private service: BigBrotherService) { }
 
 	ngOnInit(): void {
-		this.load();
+		//this.load();
 	}
 
 	private load(): void {

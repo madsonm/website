@@ -23,11 +23,22 @@ export class BigBrotherService {
 	}
 
 
-	player(pkey: string): Observable<any> {
+	scoring(): Observable<any> {
+		const request = {
+			action: 'POST'
+			,url: '/cgi/bb/scoring.cgi'
+			,message: 'Getting Scoring'
+			,cache: 'scoring'
+		} as ServiceRequest;
+
+		return this.api.call(request).pipe(map(response => (response || {}).data ?? {}));
+	}
+
+
+	player(): Observable<any> {
 		const request = {
 			action: 'POST'
 			,url: '/cgi/bb/players.cgi'
-			,body: {pkey:pkey}
 			,message: 'Getting Player'
 		} as ServiceRequest;
 
@@ -47,14 +58,21 @@ export class BigBrotherService {
 		return this.api.call(request).pipe(map(response => (response || {}).data || []));
 	}
 
-
 	scores(): Observable<any> {
 		const request = {
 			action: 'POST'
-			,url: '/cgi/bb/scoresFind.cgi'
+			,url: '/cgi/bb/playerscores.cgi'
 			,message: 'Getting Scores'
-			,cache: 'scores'
-			,force: true
+		} as ServiceRequest;
+
+		return this.api.call(request).pipe(map(response => (response || {}).data || []));
+	}
+
+	scoreDetails(): Observable<any> {
+		const request = {
+			action: 'POST'
+			,url: '/cgi/bb/playerpicks.cgi'
+			,message: 'Getting Score Details'
 		} as ServiceRequest;
 
 		return this.api.call(request).pipe(map(response => (response || {}).data || []));
