@@ -1,0 +1,42 @@
+<section>
+	<header>
+		@if (selected.length > 0) {
+		<h3 class="split">
+			<strong>Favorites</strong>
+			<mat-icon (dblclick)="reset()">label_off</mat-icon>
+		</h3>
+		}
+	</header>
+
+	<div class="list">
+		@for (rec of keywords | filterByImpure:['favorite']:'favorite' | orderBy:'+keyword'; track rec) {
+		<legendary-keyword [keyword]="rec"></legendary-keyword>
+		}
+	</div>
+
+	<footer>
+		@if (selected.length > 0) {
+		<hr />
+		}
+	</footer>
+</section>
+
+<section>
+	<mat-form-field>
+		<mat-label>Filter</mat-label>
+		<input matInput type="text" [(ngModel)]="filter" />
+		@if (filter) {
+		<mat-icon matSuffix (click)="filter=''">clear</mat-icon>
+		} @else {
+		<mat-icon matSuffix>search</mat-icon>
+		}
+	</mat-form-field>
+
+	<div class="list">
+		@for (rec of keywords | filterByNot:['favorite']:'favorite' | filterBy:['keyword']:filter | orderBy:'+keyword'; track rec) {
+		<legendary-keyword [keyword]="rec"></legendary-keyword>
+		}
+	</div>
+
+	<!-- <pre>{{keywords | json}}</pre> -->
+</section>

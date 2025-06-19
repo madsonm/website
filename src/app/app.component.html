@@ -1,32 +1,30 @@
-<ngx-ui-loader text="Loading"></ngx-ui-loader>
-<mat-toolbar>
-    <div>
-        <a href="/">madson.me</a>
-        <div [fxHide.lt-sm]="true">
-            <a mat-button *ngFor="let l of navLinks" [href]="l.url">{{l.name}}</a>
-        </div>
-        <div [fxHide.gt-xs]="true">
-            <button mat-icon-button (click)="openNav()">
-                <mat-icon>menu</mat-icon>
-            </button>
-        </div>
-    </div>
-</mat-toolbar>
+<mat-sidenav-container>
+	<mat-sidenav #sidenav mode="over" position="end" autoFocus="false">
+		<mat-nav-list>
+			@for (l of navLinks; track l) {
+			<a mat-list-item [href]="l.url">
+				<div matListItemTitle mat-line>{{l.longname}}</div>
+				<div matListItemLine>{{l.detail}}</div>
+			</a>
+			}
+		</mat-nav-list>
+	</mat-sidenav>
 
-<div class="content" [ngClass.lt-sm]="'mobile'" [ngClass.gt-xs]="'full'">
-	<router-outlet></router-outlet>
-</div>
 
-<ng-template #navTemplate>
-    <nav (click)="closeNav()">
-        <button mat-icon-button>
-            <mat-icon>close</mat-icon>
-        </button>
-    </nav>
-    <mat-nav-list>
-        <a *ngFor="let l of navLinks" [href]="l.url" mat-list-item>
-            <div matListItemTitle mat-line>{{l.longname}}</div>
-            <div matListItemLine>{{l.detail}}</div>
-        </a>
-    </mat-nav-list>
-</ng-template>
+	<mat-sidenav-content>
+		<mat-toolbar>
+			<div>
+				<a href="/">madson.me</a>
+				<div>
+					<button mat-icon-button (click)="sidenav.open()">
+						<mat-icon>menu</mat-icon>
+					</button>
+				</div>
+			</div>
+		</mat-toolbar>
+
+		<div class="content">
+			<router-outlet />
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>

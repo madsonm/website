@@ -1,0 +1,45 @@
+@if (kw) {
+<mat-card>
+	<mat-card-header>
+		<div mat-card-avatar (dblclick)="toggleFavorite()">
+			@if (kw.favorite) {
+			<mat-icon>label</mat-icon>
+			} @else {
+			<mat-icon class="muted">label_outline</mat-icon>
+			}
+		</div>
+		<mat-card-title>{{kw.keyword}}</mat-card-title>
+		<div class="mat-mdc-card-suffix" (click)="toggleLevel()">
+			@if (level2) {
+			<mat-icon>unfold_less_double</mat-icon>
+			} @else if (level1) {
+			<mat-icon>unfold_more_double</mat-icon>
+			} @else {
+			<mat-icon>unfold_more</mat-icon>
+			}
+		</div>
+	</mat-card-header>
+	@if (level1 || level2) {
+	<mat-card-content>
+		@if (kw.flavor || level1) {
+		<p><em [innerHtml]="kw.flavor | legendaryStyle | legendaryIcon"></em></p>
+		}
+		@if (kw.definition && (level1 || level2)) {
+		<p [innerHTML]="kw.definition | legendaryStyle | legendaryIcon"></p>
+		}
+		@if (kw.clarification?.length && level1) {
+		<ul>
+			@for (c of kw.clarification; track c) {
+			<li [innerHtml]="c | legendaryStyle | legendaryIcon"></li>
+			}
+		</ul>
+		}
+	</mat-card-content>
+	}
+	@if (kw.source && level1) {
+	<mat-card-footer align="center">
+		<em><small>{{kw.source.join(' / ')}}</small></em>
+	</mat-card-footer>
+	}
+</mat-card>
+}

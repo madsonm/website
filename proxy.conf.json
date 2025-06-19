@@ -1,10 +1,10 @@
 {
-    "/cgi/*": {
+    "/cgi": {
         "target": "https://madson.me",
         "secure": true,
         "changeOrigin": true
     },
-    "/img/*": {
+    "/img": {
         "target": "https://madson.me",
         "secure": true,
         "changeOrigin": true

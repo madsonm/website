@@ -1,41 +1,21 @@
-import { Component,ViewChild } from '@angular/core';
-import { MatDialog,MatDialogRef } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbar } from '@angular/material/toolbar';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
 	selector: 'app-root',
+	imports: [RouterOutlet,MatToolbar,MatIcon,MatSidenavModule,MatListModule],
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.scss']
+	styleUrl: './app.component.scss'
 })
 export class AppComponent {
-	@ViewChild('navTemplate') navTemplate;
-
-	navRef: MatDialogRef<any>;
 	navLinks = [
 		//{ url: '/bb',name: 'BB',longname: 'Big Brother',detail: 'Most recent Big Brother competition' }
 		// { url: '/bb',name: 'BB',longname: 'Big Brother',detail: 'Big Brother Competition Website' }
-		//,{ url: '#/food',name: 'Food',longname: 'Recipes / Food',detail: 'Commonly used recipes' }
-		{ url: '#/bb',name: 'BB',longname: 'Big Brother',detail: 'Most recent Big Brother competition' }
-		,{ url: '#/legendary',name: 'Legendary',longname: 'Legendary Keywords',detail: 'Defintions for Marvel Legendary Keywords' }
+		{ url: '/legendary',name: 'Legendary',longname: 'Legendary Keywords',detail: 'Defintions for Marvel Legendary Keywords' }
+		,{ url: '/recipes',name: 'Recipes',longname: 'Recipes / Food',detail: 'Commonly used recipes' }
 	];
-
-	constructor(
-		private dialog: MatDialog
-	) { }
-
-
-	openNav(): void {
-		this.navRef = this.dialog.open(this.navTemplate,{
-			autoFocus: false
-			,closeOnNavigation: true
-			,width: '100vw'
-			,height: '100vh'
-			,maxWidth: '100vh'
-			,maxHeight: '100vh'
-			,panelClass: 'fullNav'
-		});
-	}
-
-	closeNav(): void {
-		this.navRef.close();
-	}
 }
